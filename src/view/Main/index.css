@@ -1,0 +1,15 @@
+.main {
+  height: 100%;
+}
+
+.header {
+  height: 56px;
+}
+
+.wrapper {
+  height: calc(100% - 56px);
+}
+
+.test {
+  margin: 100px;
+}
