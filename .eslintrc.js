@@ -9,6 +9,7 @@ const config = {
     browser: true,
     node: true,
   },
+  presets: ["env", "react"],
   parserOptions: {
     'ecmaVersion': 6,
     'sourceType': 'module',
@@ -29,4 +30,4 @@ const config = {
 }
 
 
-module.exports = config
+module.exports = config;

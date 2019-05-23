@@ -6,7 +6,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const isProd = process.env.NODE_ENV === 'production';
 const resolve = (dir) => path.resolve(__dirname, dir);
-console.log(resolve(__dirname, 'src'), '>>>')
+const dirInclude = require('./constant')
 const config = {
   mode: isProd ? 'production' : 'development',
   devtool: isProd ? 'source-map' : 'cheap-eval-source-map',
@@ -14,15 +14,15 @@ const config = {
     index: './src/index.js',
   },
   output: {
-    path: resolve('dist/lib'),
+    path: resolve('../dist/lib'),
     publicPath: '/',
-    filename: isProd ? '[name].[chunkhash].js' : '[name].js',
+    filename: isProd ? '[name].[hash].js' : '[name].js',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
-      '@': resolve('src'),
-      'view': resolve('src/view'),
+      '@': resolve('../src'),
+      'view': resolve('../src/view'),
     }
   },
   module: {
@@ -33,7 +33,7 @@ const config = {
         use: ['babel-loader'],
       },
       {
-        test: /\.css$/,
+        test: /\.(css|less|scss)$/,
         use: [
           isProd
           ? {
@@ -42,8 +42,17 @@ const config = {
             }
           : 'style-loader',
           'css-loader',
-          'less-loader',
-        ]
+        ],
+        include: [dirInclude.src],
+      },
+      {
+        // 处理antd的样式
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+        include: [dirInclude.antd],
       }
     ]
   },
@@ -56,8 +65,8 @@ const config = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new webpack.DllReferencePlugin({
-      context: path.resolve(__dirname, 'dist/mainfest.json'),
-      manifest: path.resolve(__dirname, 'dist/mainfest.json'),
+      context: path.resolve(__dirname, '../dist/mainfest.json'),
+      manifest: path.resolve(__dirname, '../dist/mainfest.json'),
     })
   ]
 }

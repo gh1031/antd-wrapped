@@ -8,9 +8,9 @@
   "scripts": {
     "start": "NODE_ENV=development concurrently \"npm:dll\" \"npm run dev\"",
     "build": "NODE_ENV=production concurrently \"npm:clean\" \"npm:dll\" \"npm:prod\" ",
-    "dev": " webpack-dev-server --config webpack.config.dev.js ",
-    "prod": "webpack --config webpack.config.prod.js",
-    "dll": "webpack --config webpack.config.dll.js",
+    "dev": " webpack-dev-server --config ./build/webpack.config.dev.js ",
+    "prod": "webpack --config ./build/webpack.config.prod.js",
+    "dll": "webpack --config ./build/webpack.config.dll.js",
     "optimization:dev": "OPTIMIZATION=true npm run dev",
     "optimization:prod": "OPTIMIZATION=true npm run prod",
     "clean": "rm -rf ./dist/lib"
