@@ -1,0 +1,23 @@
+.index_main_V6RHU {
+  height: 100%;
+}
+
+.index_header_MOu6h {
+  height: 56px;
+}
+
+{
+  .index_wrapper_1785z {
+    height: calc(100% - 56px);
+  }
+}
+
+.index_content_2vaSd {
+  box-shadow: 0 0 5px red inset;
+}
+#index_app_19qm0 {
+  height: 100%;
+  box-shadow: 0 0 10px red;
+}
+
+/*# sourceMappingURL=index.b536bf85e8f5f4584a00.css.map*/

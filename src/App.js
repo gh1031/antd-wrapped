@@ -2,14 +2,12 @@ import React from 'react';
 import { renderRoutes } from 'react-router-config';
 import { Switch, HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
-import routes from './router';
 import store from 'view/store';
+import routes from './router';
 
 class App extends React.PureComponent {
-
   render() {
-    console.log(routes)
+    // console.log(routes)
     return (
       <Provider store={store}>
         <HashRouter>
@@ -18,7 +16,7 @@ class App extends React.PureComponent {
           </Switch>
         </HashRouter>
       </Provider>
-    )
+    );
   }
 }
 

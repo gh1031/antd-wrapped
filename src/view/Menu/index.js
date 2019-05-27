@@ -13,8 +13,8 @@ function MyMenu() {
       </SubMenu>
       <Item><Link to="/router1">router1</Link></Item>
       <Item><Link to="/router2">router2</Link></Item>
-    </Menu> 
-  )
+    </Menu>
+  );
 }
 
 export default MyMenu;

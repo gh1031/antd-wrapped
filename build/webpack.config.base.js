@@ -21,7 +21,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
-      '@': resolve('../src'),
+      '@': resolve('..'),
       'view': resolve('../src/view'),
     }
   },
@@ -41,7 +41,13 @@ const config = {
               options: {}
             }
           : 'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]_[local]_[hash:base64:5]'
+            }
+          },
         ],
         include: [dirInclude.src],
       },

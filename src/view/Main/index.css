@@ -10,6 +10,6 @@
   height: calc(100% - 56px);
 }
 
-.test {
-  margin: 100px;
+.content {
+  box-shadow: 0 0 5px red inset;
 }

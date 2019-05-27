@@ -20,13 +20,13 @@ module.exports = {
     'react-router-config',
   ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'dll_[name]_[chunkhash].js',
     library: 'dll_[name]_[chunkhash]',
   },
   plugins: [
     new webpack.DllPlugin({
-      path: path.resolve(__dirname, 'dist/mainfest.json'),
+      path: path.resolve(__dirname, '../dist/mainfest.json'),
       name: 'dll_[name]_[chunkhash]'
     })
   ]
