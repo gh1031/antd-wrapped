@@ -4,6 +4,7 @@ import Login from 'view/Login';
 import Registry from 'view/Registry';
 import NoContent from 'view/NoContent';
 import NotFound from 'view/NotFound';
+import { router1, router2 } from './view/constant/routes';
 
 const routes = [
   {
@@ -25,11 +26,11 @@ const routes = [
         component: ReduxPromise,
       },
       {
-        path: '/router1',
+        path: router1,
         component: NoContent,
       },
       {
-        path: '/router2',
+        path: router2,
         component: NoContent,
       },
       {

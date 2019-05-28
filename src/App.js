@@ -11,9 +11,7 @@ class App extends React.PureComponent {
     return (
       <Provider store={store}>
         <HashRouter>
-          <Switch>
-            {renderRoutes(routes)}
-          </Switch>
+          <Switch>{renderRoutes(routes)}</Switch>
         </HashRouter>
       </Provider>
     );
