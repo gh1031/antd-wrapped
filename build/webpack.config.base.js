@@ -45,9 +45,12 @@ const config = {
             loader: 'css-loader',
             options: {
               modules: true,
-              localIdentName: '[name]_[local]_[hash:base64:5]'
+              localIdentName: '[name]_[local]_[hash:base64:5]',
+              importLoaders: 2,
             }
           },
+          'postcss-loader',
+          'less-loader',
         ],
         include: [dirInclude.src],
       },

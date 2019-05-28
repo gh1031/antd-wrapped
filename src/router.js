@@ -34,10 +34,9 @@ const routes = [
       },
       {
         component: NotFound,
-      }
-    ]
+      },
+    ],
   },
-
-]
+];
 
 export default routes;

@@ -42,6 +42,8 @@ const config = {
     'react/jsx-filename-extension': off,
     'react/forbid-prop-types': off,
     'no-plusplus': off,
+    'global-require': off,
+    'import/no-extraneous-dependencies': off,
   },
 }
 

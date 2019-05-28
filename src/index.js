@@ -7,5 +7,3 @@ if (module.hot) {
   module.hot.accept();
 }
 ReactDom.render(<App />, document.getElementById('app'));
-
-const { location } = window.location;
