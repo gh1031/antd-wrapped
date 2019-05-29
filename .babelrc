@@ -1,12 +1,16 @@
 {
-  "presets": ["@babel/preset-react"],
+  "presets": [["@babel/preset-react"]],
   "plugins": [
-    ["import", {
-      "libraryName": "antd",
-      "libraryDirectory": "es",
-      "style": "css"
-    }],
+    // antd 打入dll包，不需要动态加载
+    // [
+    //   "import",
+    //   {
+    //     "libraryName": "antd",
+    //     "libraryDirectory": "es",
+    //     "style": "css"
+    //   }
+    // ],
     ["@babel/plugin-proposal-decorators", { "legacy": true, "loose": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
   ]
 }

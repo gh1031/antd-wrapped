@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
+
 const isProd = process.env === 'production';
+const { resolve } = require('./util');
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
@@ -8,6 +10,7 @@ module.exports = {
     extensions: ['.js', '.json'],
   },
   entry: [
+    'antd',
     'lodash',
     'react',
     'classnames',
@@ -20,14 +23,14 @@ module.exports = {
     'react-router-config',
   ],
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: resolve('../dist'),
     filename: 'dll_[name]_[chunkhash].js',
     library: 'dll_[name]_[chunkhash]',
   },
   plugins: [
     new webpack.DllPlugin({
-      path: path.resolve(__dirname, '../dist/mainfest.json'),
-      name: 'dll_[name]_[chunkhash]'
-    })
-  ]
-}
+      path: resolve('../dist/dll__mainfest.json'),
+      name: 'dll_[name]_[chunkhash]',
+    }),
+  ],
+};

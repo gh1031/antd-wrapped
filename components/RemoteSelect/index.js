@@ -10,18 +10,13 @@
 
 import React, { useState } from 'react';
 import { Select, Spin } from 'antd';
-import { noop } from '~/client/utils/lang';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 
 const { Option } = Select;
 
-function SearchWithImagination({
-  fetchApi,
-  optionKey,
-  onSelect,
-  showArrow,
-  delay,
+function RemoteSelect({
+  fetchApi, optionKey, onSelect, showArrow, delay, style,
 }) {
   const [fetching, setFetch] = useState(true);
   const [options, setOptions] = useState([]);
@@ -37,28 +32,31 @@ function SearchWithImagination({
   return (
     <Select
       showSearch
-      showArrow={showArrow}
+      style={style}
       onSelect={onSelect}
+      showArrow={showArrow}
       onSearch={debounce(handleSearch, delay)}
       notFoundContent={fetching ? <Spin size="small" /> : null}
     >
-      { renderOptions() }
+      {renderOptions()}
     </Select>
   );
 }
 
-SearchWithImagination.propTypes = {
+RemoteSelect.propTypes = {
   fetchApi: PropTypes.func.isRequired,
   optionKey: PropTypes.string.isRequired,
   onSelect: PropTypes.func,
   showArrow: PropTypes.bool,
   delay: PropTypes.number,
+  style: PropTypes.object,
 };
 
-SearchWithImagination.defaultProps = {
-  onSelect: noop,
+RemoteSelect.defaultProps = {
+  onSelect: () => {},
   showArrow: false,
   delay: 800,
+  style: { width: 200 },
 };
 
-export default SearchWithImagination;
+export default RemoteSelect;

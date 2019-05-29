@@ -4,3 +4,13 @@ build
 .eslintrc.js
 .npmignore
 yarn*
+components
+src/
+postcss.config.js
+webpack.config.js
+index.html
+.npmrc
+.gitignore
+.eslintrc
+.eslintignore
+.babelrc

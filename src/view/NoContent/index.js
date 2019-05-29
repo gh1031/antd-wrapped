@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import RemoteSelect from '@/components/RemoteSelect';
 
-const NoContent = () => <h1>Page is building! please hold on!</h1>;
+const NoContent = () => (
+  <Fragment>
+    <RemoteSelect style={{ width: 300 }} fetchApi={() => {}} optionKey="antd" />
+  </Fragment>
+);
 
 export default NoContent;

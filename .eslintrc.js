@@ -1,7 +1,7 @@
 const off = 0;
 const warn = 1;
 const error = 2;
-const isGit = process.env.ESLIT_ENV = 'GIT';
+const isGit = (process.env.ESLIT_ENV = 'GIT');
 const path = require('path');
 
 const config = {
@@ -11,30 +11,28 @@ const config = {
     node: true,
   },
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       webpack: {
         config: {
           resolve: {
             alias: {
               '@': path.resolve(__dirname),
-              'view': path.resolve(__dirname, './src/view')
-            }
-          }
-        }
-      }
-    }
+              view: path.resolve(__dirname, './src/view'),
+            },
+          },
+        },
+      },
+    },
   },
   parserOptions: {
-    'ecmaVersion': 6,
-    'sourceType': 'module',
-    'ecmaFeatures': {
+    ecmaVersion: 6,
+    sourceType: 'module',
+    ecmaFeatures: {
       jsx: true,
     },
   },
-  extends: [
-    'eslint:recommended',
-    'airbnb',
-  ],
+  plugins: ['react-hooks'],
+  extends: ['eslint:recommended', 'airbnb'],
   rules: {
     'no-console': isGit ? error : warn,
     'react/jsx-uses-react': warn,
@@ -44,8 +42,11 @@ const config = {
     'no-plusplus': off,
     'global-require': off,
     'import/no-extraneous-dependencies': off,
+    'jsx-a11y/anchor-is-valid': off,
+    'react-hooks/rules-of-hooks': error,
+    'react-hooks/exhaustive-deps': warn,
+    'no-shadow': off,
   },
-}
-
+};
 
 module.exports = config;
