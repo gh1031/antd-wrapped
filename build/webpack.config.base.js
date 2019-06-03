@@ -55,7 +55,7 @@ const config = {
           'postcss-loader',
           'less-loader',
         ],
-        include: [dirInclude.src],
+        include: [dirInclude.src, dirInclude.components],
       },
       {
         // 处理antd的样式

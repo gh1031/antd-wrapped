@@ -46,6 +46,7 @@ const config = {
     'react-hooks/rules-of-hooks': error,
     'react-hooks/exhaustive-deps': warn,
     'no-shadow': off,
+    'no-underscore-dangle': off,
   },
 };
 
