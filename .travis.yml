@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "node"
+branchs:
+  only:
+    - gh-pages
+install:
+  - yarn
+script:
+  - yarn run build:website
+  - cp dist/* ./
