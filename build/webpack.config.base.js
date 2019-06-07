@@ -26,6 +26,7 @@ const config = {
     alias: {
       '@': resolve('..'),
       view: resolve('../src/view'),
+      src: resolve('../src'),
     },
   },
   module: {
@@ -43,13 +44,10 @@ const config = {
         ],
       },
       {
-        test: /\.(css|less|scss)$/,
+        test: /\.(c|le|sc)ss$/,
         use: [
           isProd
-            ? {
-              loader: MiniCssExtractPlugin.loader,
-              options: {},
-            }
+            ? MiniCssExtractPlugin.loader
             : 'style-loader',
           {
             loader: 'css-loader',

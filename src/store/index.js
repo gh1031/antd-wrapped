@@ -3,8 +3,8 @@ import promiseMiddleware from 'redux-promise';
 import reducer from './reducer';
 
 const middleware = [promiseMiddleware];
-
-if (process.env.NODE_ENV === 'development') {
+// eslint-disable-next-line no-undef
+if (__DEV__) {
   const { logger } = require('redux-logger'); // eslint-disable-line
   middleware.push(logger);
 }

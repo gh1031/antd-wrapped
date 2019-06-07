@@ -1,37 +1,63 @@
 
 import React, { useState } from 'react';
-import { Layout, Button } from 'antd';
-import AntdMenu from '@/components/AntdMenu';
+import { Layout, Icon } from 'antd';
+import { connect } from 'react-redux';
+import WrappedMenu from '@/components/WrappedMenu';
 import { recursionRewriteFields } from '@/components/utils/lang';
+// eslint-disable-next-line import/no-unresolved
+import delayOperation from 'src/utils/delay';
+// eslint-disable-next-line import/no-unresolved
+import { actions } from 'src/store/reducer/global';
+import PropTypes from 'prop-types';
+import {
+  component,
+  // eslint-disable-next-line import/no-unresolved
+} from 'src/constant/routes';
 
 const menus = [
   {
-    title: 'router1',
-    path: '/router1',
+    title: 'install',
+    path: '/install',
+    icon: 'setting',
   },
   {
-    title: 'router2',
-    path: '/router2',
+    title: 'windows',
+    path: '/windows',
+    icon: 'windows',
   },
   {
-    title: 'router3',
-    path: '/router3',
+    title: 'taobao',
+    path: '/taobeo',
+    icon: 'taobao',
   },
   {
-    title: 'router4',
+    title: 'upload',
+    path: '/upload',
+    icon: 'upload',
+  },
+  {
+    title: 'components',
+    icon: 'alipay',
     children: [
       {
-        title: 'router4/1',
-        path: '/router4',
-        icon: 'setting',
+        title: 'WrappedMenu',
+        path: component.wrapped_menu,
+        icon: 'menu',
       },
       {
-        title: 'router4/2',
-        path: '/router5',
+        title: 'RemoteSelect',
+        path: component.remote_select,
+        icon: 'select',
       },
       {
-        title: 'router4/3',
-        path: '/router6',
+        title: 'WrappedUpload',
+        path: component.wrapped_upload,
+        icon: 'upload',
+      },
+      {
+        title: 'OperationConfirm',
+        path: component.operation_confirm,
+        icon: 'question',
       },
     ],
   },
@@ -39,17 +65,35 @@ const menus = [
 
 const newMenus = recursionRewriteFields(menus);
 const { Sider } = Layout;
+const style = {
+  fontSize: 24,
+  textAlign: 'center',
+};
 
-const Asider = () => {
+const Asider = (props) => {
   const [collapsed, setCollapsed] = useState(false);
   const toggleMenu = () => setCollapsed(!collapsed);
+  const onClick = async () => {
+    const { globalLoading } = props;
+    await delayOperation(globalLoading, { globalLoading: true });
+    delayOperation(globalLoading, { globalLoading: false }, 200);
+  };
   return (
-    <Sider>
-      <Button onClick={toggleMenu}>button</Button>
-      <AntdMenu theme="dark" menus={newMenus} collapsed={collapsed} />
+    <Sider collapsed={collapsed} theme="light">
+      <section style={style}>
+        <Icon type="switcher" onClick={toggleMenu} />
+      </section>
+      <WrappedMenu menus={newMenus} onClick={onClick} />
     </Sider>
   );
 };
 
+Asider.propTypes = {
+  globalLoading: PropTypes.func,
+};
 
-export default Asider;
+Asider.defaultProps = {
+  globalLoading: () => {},
+};
+
+export default connect(null, actions.global)(Asider);

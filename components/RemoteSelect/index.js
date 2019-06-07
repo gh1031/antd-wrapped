@@ -16,7 +16,12 @@ import debounce from 'lodash.debounce';
 const { Option } = Select;
 
 function RemoteSelect({
-  fetchApi, optionKey, onSelect, showArrow, delay, style,
+  fetchApi,
+  optionKey,
+  onSelect,
+  showArrow,
+  delay,
+  style,
 }) {
   const [fetching, setFetch] = useState(true);
   const [options, setOptions] = useState([]);
