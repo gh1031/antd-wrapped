@@ -9,3 +9,5 @@ export function recursionRewriteFields(arr = [], key) {
     return item;
   });
 }
+
+export const noop = () => {};

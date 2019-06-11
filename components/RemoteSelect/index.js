@@ -12,6 +12,7 @@ import React, { useState } from 'react';
 import { Select, Spin } from 'antd';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
+import { noop } from '@/components/utils/lang';
 
 const { Option } = Select;
 
@@ -58,7 +59,7 @@ RemoteSelect.propTypes = {
 };
 
 RemoteSelect.defaultProps = {
-  onSelect: () => {},
+  onSelect: noop,
   showArrow: false,
   delay: 800,
   style: { width: 200 },

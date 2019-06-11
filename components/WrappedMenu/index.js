@@ -3,6 +3,7 @@ import { Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import commonStyle from '@/components/common.less';
+import { noop } from '@/components/utils/lang';
 
 
 const { SubMenu, Item } = Menu;
@@ -49,7 +50,7 @@ WrappedMenu.defaultProps = {
       <span>{menu.title}</span>
     </Fragment>
   ),
-  onClick: () => {},
+  onClick: noop,
 };
 
 export default WrappedMenu;

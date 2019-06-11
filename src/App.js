@@ -8,7 +8,6 @@ import routes from './router';
 
 class App extends React.PureComponent {
   render() {
-    // console.log(routes)
     return (
       <Provider store={store}>
         <HashRouter>
