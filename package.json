@@ -10,6 +10,7 @@
     "build": "rm -rf lib && webpack --config webpack.config.js",
     "build:website": "NODE_ENV=production concurrently \"npm:clean\" \"npm:dll\" \"npm:prod\" ",
     "dev": " npm run dll && webpack-dev-server --config ./build/webpack.config.dev.js ",
+    "gh-pages": "sh ./gh-pages.sh",
     "prod": "npm run dll && webpack --config ./build/webpack.config.prod.js",
     "dll": "webpack --config ./build/webpack.config.dll.js",
     "optimization:dev": "OPTIMIZATION=true npm run dev",

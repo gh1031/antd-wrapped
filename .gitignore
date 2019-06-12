@@ -1,4 +1,18 @@
-node_modules/
-yarn-error.log
-dist/
+node_modules
+yarn*
+.*
+# .npmignore
+# .npmrc
+# .babelrc
+# .eslintignore
+# .eslintrc.js
+dist
+components
 webpack.config.js
+package*
+README.md
+src
+docs
+build/*
+*.map
+package.json

@@ -4,3 +4,6 @@ dist/*
 lib/*
 build/*
 webpack.config.js
+index.*.js
+index.*.css
+dll*.js

@@ -8,7 +8,7 @@ const HtmlWebpackAssetsPlugin = require('html-webpack-include-assets-plugin');
 const isProd = process.env.NODE_ENV === 'production';
 const { resolve } = require('./util');
 const DIR_MAP = require('./constant');
-const manifest = require('../dist/dll__mainfest.json');
+const manifest = require('../dll__mainfest.json');
 
 const config = {
   mode: isProd ? 'production' : 'development',
@@ -18,8 +18,8 @@ const config = {
     index: './src/index.js',
   },
   output: {
-    path: resolve('../dist'),
-    publicPath: '/',
+    path: resolve('../'),
+    publicPath: './',
     filename: isProd ? '[name].[contenthash].js' : '[name].js',
   },
   resolve: {
@@ -80,11 +80,12 @@ const config = {
       template: resolve('../index.html'),
     }),
     new HtmlWebpackAssetsPlugin({
-      assets: `${manifest.name}.js`,
+      assets: `./${manifest.name}.js`,
       append: false,
     }),
     // new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
+      __DEV__: JSON.stringify(process.env.NODE_ENV),
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
   ],

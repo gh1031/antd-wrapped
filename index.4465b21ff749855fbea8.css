@@ -1,0 +1,68 @@
+.common_mr8_20y1g {
+  margin-right: 4px;
+}
+
+.index_layout_1a1aW {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+.index_layout_1a1aW .index_auto_Kn2T4 {
+  margin: auto;
+}
+
+.index_main_dZDwb {
+  height: 100%;
+}
+.index_main_dZDwb .index_header_2DWtz {
+  height: 56px;
+}
+.index_main_dZDwb .index_wrapper_CW5kU {
+  height: calc(100% - 56px);
+}
+.index_main_dZDwb .index_wrapper_CW5kU .index_content_1rLq9 {
+  padding: 24px;
+}
+
+.wrapped-modal .ant-modal-content .ant-modal-close-x {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: left;
+}
+.wrapped-modal img {
+  width: 100%;
+}
+.wrapped-drag {
+  padding: 0 16px;
+}
+
+#app {
+  height: 100%;
+}
+::-webkit-input-placeholder {
+  color: gray;
+}
+::-moz-placeholder {
+  color: gray;
+}
+:-ms-input-placeholder {
+  color: gray;
+}
+::-ms-input-placeholder {
+  color: gray;
+}
+::placeholder {
+  color: gray;
+}
+
+
+/*# sourceMappingURL=index.4465b21ff749855fbea8.css.map*/
