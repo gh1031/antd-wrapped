@@ -12,7 +12,8 @@ const manifest = require('../dist/dll__mainfest.json');
 
 const config = {
   mode: isProd ? 'production' : 'development',
-  devtool: isProd ? 'source-map' : 'cheap-eval-source-map',
+  // devtool: isProd ? 'source-map' : 'cheap-eval-source-map',
+  devtool: 'source-map',
   entry: {
     index: './src/index.js',
   },

@@ -14,4 +14,5 @@ export const component = {
   remote_select: '/components/remote_select',
   operation_confirm: '/components/operation_confirm',
   wrapped_upload: '/components/wrapped_upload',
+  wrapped_form: '/components/wrapped_form',
 };

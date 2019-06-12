@@ -10,6 +10,7 @@ import WrappedUpload from 'view/Upload';
 import WrappedMenu from 'view/WrappedMenu';
 import RemoteSelect from 'view/RemoteSelect';
 import OperationConfirm from 'view/OperationConfirm';
+import WrappedForm from 'view/WrappedForm';
 
 
 import {
@@ -64,6 +65,10 @@ const routes = [
       {
         path: component.operation_confirm,
         component: OperationConfirm,
+      },
+      {
+        path: component.wrapped_form,
+        component: WrappedForm,
       },
       {
         component: NotFound,

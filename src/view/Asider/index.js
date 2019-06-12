@@ -59,6 +59,11 @@ const menus = [
         path: component.operation_confirm,
         icon: 'question',
       },
+      {
+        title: 'WrappedForm',
+        path: component.wrapped_form,
+        icon: 'form',
+      },
     ],
   },
 ];
