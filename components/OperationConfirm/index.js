@@ -3,7 +3,11 @@ import { Popconfirm } from 'antd';
 import PropTypes from 'prop-types';
 
 const OperationConfirm = ({
-  title, okText, cancelText, onConfirm, operationText,
+  title,
+  okText,
+  cancelText,
+  onConfirm,
+  operationText,
 }) => (
   <Popconfirm
     title={title}
@@ -17,7 +21,10 @@ const OperationConfirm = ({
 );
 
 OperationConfirm.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
   okText: PropTypes.string,
   cancelText: PropTypes.string,
   operationText: PropTypes.string,

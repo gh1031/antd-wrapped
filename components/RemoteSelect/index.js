@@ -12,16 +12,23 @@ import React, { useState } from 'react';
 import { Select, Spin } from 'antd';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
+import { noop } from '@/components/utils/lang';
 
 const { Option } = Select;
 
 function RemoteSelect({
-  fetchApi, optionKey, onSelect, showArrow, delay, style,
+  fetchApi,
+  optionKey,
+  onSelect,
+  showArrow,
+  delay,
+  style,
 }) {
   const [fetching, setFetch] = useState(true);
   const [options, setOptions] = useState([]);
 
   async function handleSearch(value) {
+    setFetch(true);
     const { list } = await fetchApi({ [optionKey]: value });
     setFetch(false);
     setOptions(list);
@@ -53,9 +60,9 @@ RemoteSelect.propTypes = {
 };
 
 RemoteSelect.defaultProps = {
-  onSelect: () => {},
+  onSelect: noop,
   showArrow: false,
-  delay: 800,
+  delay: 300,
   style: { width: 200 },
 };
 

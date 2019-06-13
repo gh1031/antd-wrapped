@@ -1,23 +1,29 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './components/index.js',
-  devtool: 'source-map',
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
-    library: 'antd-wrapped',
+    path: path.resolve(__dirname, 'lib'),
+    library: 'AntdWrapped',
     libraryTarget: 'umd',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      '@': path.resolve(__dirname),
+    }
   },
   externals: {
     antd: 'antd',
-    react: 'react',
+    react: 'React',
+    lodash: 'loadsh',
     'lodash.debounce': 'lodash.debounce',
     'prop-types': 'prop-types',
+    'react-router-dom': 'react-router-dom',
   },
   module: {
     rules: [
@@ -27,9 +33,16 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.(c|le)ss$/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader'],
       },
     ],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'antd-wrapped.css',
+    }),
+    new OptimizeCSSAssetsPlugin({}),
+  ]
 };

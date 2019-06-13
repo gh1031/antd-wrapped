@@ -1,7 +1,7 @@
 {
   "presets": [["@babel/preset-react"]],
   "plugins": [
-    // antd 打入dll包，不需要动态加载
+    // antd 打入dll
     // [
     //   "import",
     //   {

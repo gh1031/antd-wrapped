@@ -11,14 +11,15 @@ module.exports = merge(base, {
     hot: true,
     compress: false,
     noInfo: false,
-    hot: true,
     open: true,
     logTime: true,
+    overlay: true,
+    proxy: {
+    }
   },
   plugins: [
     new webpack.DefinePlugin({
-      DEVELOPMENT: JSON.stringify(true),
-      DEVTEST: JSON.stringify(true),
+      __DEV__: JSON.stringify(true),
     }),
   ],
 });

@@ -4,34 +4,71 @@ import Login from 'view/Login';
 import Registry from 'view/Registry';
 import NoContent from 'view/NoContent';
 import NotFound from 'view/NotFound';
-import { router1, router2 } from './view/constant/routes';
+import Install from 'view/Install';
+
+import WrappedUpload from 'view/Upload';
+import WrappedMenu from 'view/WrappedMenu';
+import RemoteSelect from 'view/RemoteSelect';
+import OperationConfirm from 'view/OperationConfirm';
+import WrappedForm from 'view/WrappedForm';
+
+
+import {
+  install,
+  router2,
+  reactPromise,
+  registry,
+  login,
+  root,
+  component,
+} from './constant/routes';
 
 const routes = [
   {
-    path: '/login',
+    path: login,
     component: Login,
     exact: true,
   },
   {
-    path: '/registry',
+    path: registry,
     component: Registry,
     exact: true,
   },
   {
-    path: '/',
+    path: root,
     component: Main,
     routes: [
       {
-        path: '/react_promise',
+        path: reactPromise,
         component: ReduxPromise,
       },
       {
-        path: router1,
-        component: NoContent,
+        path: install,
+        component: Install,
       },
       {
         path: router2,
         component: NoContent,
+      },
+      {
+        path: component.wrapped_menu,
+        component: WrappedMenu,
+      },
+      {
+        path: component.wrapped_upload,
+        component: WrappedUpload,
+      },
+      {
+        path: component.remote_select,
+        component: RemoteSelect,
+      },
+      {
+        path: component.operation_confirm,
+        component: OperationConfirm,
+      },
+      {
+        path: component.wrapped_form,
+        component: WrappedForm,
       },
       {
         component: NotFound,
