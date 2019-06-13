@@ -12,7 +12,6 @@ yarn add antd-wrapped
 import {
   WrappedForm,
   WrappedMenu,
-  WrappedUpload,
   OperationConfirm,
 } from 'antd-wrapped';
 import 'antd-wrapped/index.css';

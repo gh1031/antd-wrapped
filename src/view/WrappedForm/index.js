@@ -8,10 +8,8 @@ import {
   Radio,
   Checkbox,
 } from 'antd';
-import WrappedForm from '@/components/WrappedForm';
-import WrappedCard from '@/components/WrappedCard';
+import { WrappedForm, WrappedCard } from 'antd-wrapped';
 import cloneDeep from 'lodash/cloneDeep';
-
 import PropTypes from 'prop-types';
 import { statusList } from './constant';
 
