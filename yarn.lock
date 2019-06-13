@@ -1071,6 +1071,25 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
+antd-wrapped@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/antd-wrapped/-/antd-wrapped-0.0.6.tgz#3f8cdf499862c280eaccdd8e027e50917fa94806"
+  integrity sha512-MYUvWL2/oriKGMUaxCZsF1XnSwcb7wRFm2XmHbnK0YuTnSZQpA9TiKFh4EHIhVn+DFSWSX+FRBZ8RLFfANVqLw==
+  dependencies:
+    antd "^3.16.1"
+    lodash "^4.17.11"
+    lodash.debounce "^4.0.8"
+    prop-types "^15.7.2"
+    react "^16.8.6"
+    react-dom "^16.8.6"
+    react-redux "^7.0.3"
+    react-router-config "^5.0.0"
+    react-router-dom "^5.0.0"
+    redux "^4.0.1"
+    redux-actions "^2.6.5"
+    redux-logger "^3.0.6"
+    redux-promise "^0.6.0"
+
 antd@^3.16.1:
   version "3.19.2"
   resolved "https://registry.npmjs.org/antd/-/antd-3.19.2.tgz#18829f7bbc6acb3f4b43a77349c2bf2c3e733408"

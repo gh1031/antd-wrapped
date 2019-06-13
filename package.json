@@ -1,10 +1,14 @@
 {
   "name": "antd-wrapped",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A UI components based on antd",
   "main": "lib/index.js",
   "author": "gh1031",
   "license": "MIT",
+  "files": [
+    "lib",
+    "docs"
+  ],
   "scripts": {
     "start": "NODE_ENV=development concurrently \"npm:dll\" \"npm run dev\"",
     "build": "rm -rf lib && webpack",
@@ -19,6 +23,7 @@
   },
   "dependencies": {
     "antd": "^3.16.1",
+    "antd-wrapped": "^0.0.6",
     "lodash": "^4.17.11",
     "lodash.debounce": "^4.0.8",
     "prop-types": "^15.7.2",

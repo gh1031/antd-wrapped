@@ -41,7 +41,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'antd-wrapped.css',
+      filename: 'index.css',
     }),
     new OptimizeCSSAssetsPlugin({}),
   ]
