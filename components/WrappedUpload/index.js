@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import {
   Upload,
   Button,
@@ -29,6 +29,7 @@ function WrappedUpload(props) {
     buttonText,
     onSuccess,
     children,
+    pictureCount = 30,
     ...rest
   } = props;
   const iconType = loading ? 'loading' : (icon || 'upload');
@@ -89,9 +90,15 @@ function WrappedUpload(props) {
     uploadProps.onPreview = handlePreview;
   }
   const renderList = () => (
-    <Upload {...widgetProps}>
-      <Icon type={iconType} />
-      <div className="ant-upload-text">{buttonText}</div>
+    <Fragment>
+      <Upload {...widgetProps}>
+        { fileList.length >= pictureCount ? null : (
+          <Fragment>
+            <Icon type={iconType} />
+            <div className="ant-upload-text">{buttonText}</div>
+          </Fragment>
+        )}
+      </Upload>
       <Modal
         className="wrapped-modal"
         footer={null}
@@ -100,7 +107,7 @@ function WrappedUpload(props) {
       >
         <img alt="preview" src={preview.previewSrc} />
       </Modal>
-    </Upload>
+    </Fragment>
   );
   /**
    * list type method end scope
@@ -159,6 +166,7 @@ WrappedUpload.propTypes = {
   icon: PropTypes.string,
   buttonType: PropTypes.string,
   buttonText: PropTypes.string,
+  pictureCount: PropTypes.number,
   onSuccess: PropTypes.func,
 };
 WrappedUpload.defaultProps = {

@@ -1,30 +1,41 @@
-import React, { Fragment } from 'react';
-import { Icon } from 'antd';
+import React from 'react';
 import WrappedUpload from '../../../components/WrappedUpload';
 
 const ACTION = 'https://www.mocky.io/v2/5cc8019d300000980a055e76';
+const style = {
+  width: 400,
+  height: 200,
+};
+
 // eslint-disable-next-line arrow-body-style
 const Upload = () => {
   return (
-    <Fragment>
-      <WrappedUpload />
-      <WrappedUpload
-        type="list"
-        uploadProps={{
-          action: ACTION,
-          listType: 'picture',
-          // showUploadList: false,
-        }}
-      />
-      <WrappedUpload
-        type="drag"
-        uploadProps={{
-          action: ACTION,
-          listType: 'picture',
-          showUploadList: false,
-        }}
-      />
-    </Fragment>
+    <div>
+      <div style={style}>
+        <WrappedUpload />
+      </div>
+      <br />
+      <div style={style}>
+        <WrappedUpload
+          type="list"
+          uploadProps={{
+            action: ACTION,
+            listType: 'picture',
+            // showUploadList: false,
+          }}
+        />
+      </div>
+      <div style={style}>
+        <WrappedUpload
+          type="drag"
+          uploadProps={{
+            action: ACTION,
+            listType: 'picture',
+            showUploadList: false,
+          }}
+        />
+      </div>
+    </div>
   );
 };
 

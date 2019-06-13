@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import WrappedMenu from '@/components/WrappedMenu';
-import { Layout } from 'antd';
 import { recursionRewriteFields } from '@/components/utils/lang';
 
 const menus = [
@@ -23,10 +22,34 @@ const menus = [
     title: 'upload',
     path: '/upload',
     icon: 'upload',
+    children: [
+      {
+        title: 'apple',
+        path: '/apple',
+        icon: 'apple',
+      },
+      {
+        title: 'windows',
+        path: '/windows',
+        icon: 'windows',
+      },
+      {
+        title: 'taobao',
+        path: '/taobeo',
+        icon: 'taobao',
+      },
+    ],
   },
 ];
 const newMenus = recursionRewriteFields(menus);
-const { Sider } = Layout;
-const Component = () => <Sider><WrappedMenu menus={newMenus} /></Sider>;
+const Component = () => (
+  <Fragment>
+    <div style={{ width: 200, marginBottom: 20 }}>
+      <WrappedMenu menus={newMenus} />
+    </div>
+    <WrappedMenu menus={newMenus} mode="horizontal" />
+    <WrappedMenu menus={newMenus} mode="horizontal" theme="dark" />
+  </Fragment>
+);
 
 export default Component;

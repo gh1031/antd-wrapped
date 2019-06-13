@@ -4,120 +4,78 @@ import {
   Form,
   Select,
   Button,
+  DatePicker,
+  Radio,
+  Checkbox,
 } from 'antd';
 import WrappedForm from '@/components/WrappedForm';
+import WrappedCard from '@/components/WrappedCard';
+import cloneDeep from 'lodash/cloneDeep';
+
 import PropTypes from 'prop-types';
+import { statusList } from './constant';
 
 const { renderOptions } = WrappedForm;
-const options = [{ title: 'option1', key: 'option1' }, { title: 'option2', key: 'option2' }];
-const meta = {
-  columns: 1,
+const { RangePicker } = DatePicker;
+const metaH = {
+  columns: 3,
   formItemLayout: {
     labelCol: {
-      span: 2,
+      span: 4,
     },
     wrapperCol: {
-      span: 22,
+      span: 20,
     },
   },
   formItems: [
     {
-      label: 'key1',
-      field: 'key1',
-      key: 'key1',
-      required: true,
-      component: Input,
-    },
-    {
-      label: 'key2',
-      key: 'key2',
-      field: 'key2',
-      component: Input,
-    },
-    {
-      label: 'key4',
-      field: 'key4',
-      key: 'key4',
-      component: Input,
-    },
-    {
-      label: 'key5',
-      key: 'key5',
-      field: 'key5',
-      component: Input,
-    },
-    {
-      label: 'key6',
-      key: 'key6',
-      field: 'key6',
-      component: Input,
-    },
-    {
-      label: 'key7',
-      field: 'key7',
-      key: 'key7',
-      component: Input,
-    },
-    {
-      label: 'key8',
-      key: 'key8',
-      field: 'key8',
-      component: Input,
-    },
-    {
-      label: 'key9',
-      field: 'key9',
-      key: 'key9',
-      component: Input,
-    },
-    {
-      label: 'key10',
-      key: 'key10',
-      field: 'key10',
-      component: Input,
-    },
-    {
-      label: 'key11',
-      field: 'key11',
-      key: 'key11',
-      component: Input,
-    },
-    {
-      label: 'key12',
-      key: 'key12',
-      field: 'key12',
-      component: Input,
-    },
-    {
-      label: 'key13',
-      field: 'key13',
-      key: 'key13',
-      component: Input,
-    },
-    {
-      label: 'key14',
-      key: 'key14',
-      field: 'key14',
-      component: Input,
-    },
-    {
-      label: 'key15',
-      key: 'key15',
-      field: 'key15',
-      component: Input,
-    },
-    {
-      label: 'key3',
-      key: 'key3',
-      field: 'key3',
+      label: '状态',
+      field: 'status',
+      key: 'status',
       component: Select,
       componentProps: {
-        children: renderOptions(options),
+        children: renderOptions(statusList, { key: 'status' }),
+      },
+      formItemProps: {
+        initialValue: 0,
+      },
+    },
+    {
+      label: '订单时间',
+      key: 'orderTime',
+      field: 'orderTime',
+      component: DatePicker,
+      componentProps: {
+        style: {
+          width: '100%',
+        },
+      },
+    },
+    {
+      label: '订单号',
+      key: 'orderNumber',
+      field: 'orderNumber',
+      component: Input,
+    },
+    {
+      label: '入住时间',
+      key: 'checkIn',
+      field: 'checkIn',
+      component: RangePicker,
+      componentProps: {
+        style: {
+          width: '100%',
+        },
       },
     },
     {
       field: 'operation',
       component: Button,
+      formItemLayout: {
+        wrapperCol: {
+          offset: 4,
+        },
+      },
       componentProps: {
         type: 'primary',
         htmlType: 'submit',
@@ -126,21 +84,75 @@ const meta = {
     },
   ],
 };
+
+const metaV = cloneDeep(metaH);
+metaV.columns = 1;
+metaV.formItems.splice(-1, 0, {
+  label: '配套',
+  field: 'mode',
+  key: 'mode',
+  component: Checkbox.Group,
+  componentProps: {
+    options: [
+      {
+        label: '早餐',
+        value: 'mode1',
+      },
+      {
+        label: '窗户',
+        value: 'mode2',
+      },
+      {
+        label: '无线',
+        value: 'wifi',
+      },
+    ],
+  },
+  formItemProps: {
+    initialValue: ['mode1', 'mode2', 'wifi'],
+  },
+}, {
+  label: '类型',
+  field: 'type',
+  key: 'type',
+  component: Radio.Group,
+  componentProps: {
+    options: [
+      {
+        label: '单间',
+        value: 'mode1',
+      },
+      {
+        label: '标间',
+        value: 'mode2',
+      },
+    ],
+  },
+  formItemProps: {
+    initialValue: 'mode1',
+  },
+});
+
 const Component = ({ form }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { validateFieldsAndScroll } = form;
     validateFieldsAndScroll((error, values) => {
       if (error) return null;
+      console.log(values); // eslint-disable-line
       return values;
-      // console.log(values);
     });
   };
 
   return (
-    <section style={{ width: '100%' }}>
+    <section>
       <Form onSubmit={handleSubmit}>
-        <WrappedForm form={form} meta={meta} />
+        <WrappedCard title="横行布局">
+          <WrappedForm form={form} meta={metaH} />
+        </WrappedCard>
+        <WrappedCard title="纵向布局">
+          <WrappedForm form={form} meta={metaV} />
+        </WrappedCard>
       </Form>
     </section>
   );

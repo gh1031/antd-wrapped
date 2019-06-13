@@ -116,16 +116,24 @@ WrappedForm.defaultProps = {
   meta: {},
 };
 
-WrappedForm.renderOptions = (array, titleKey = 'title', key = 'key') => {
+WrappedForm.renderOptions = (
+  array,
+  options,
+) => {
   if (!Array.isArray(array)) {
     throw Error('The first argument must be an array type!');
   }
+  const {
+    titleKey = 'title',
+    key = 'key',
+  } = options;
   const childern = [];
   if (!array.length) return null;
   for (let i = 0; i < array.length; i++) {
     childern.push(
       <Option
         key={array[i][key]}
+        value={array[i][key]}
       >
         {array[i][titleKey]}
       </Option>,
@@ -133,7 +141,5 @@ WrappedForm.renderOptions = (array, titleKey = 'title', key = 'key') => {
   }
   return childern;
 };
-
-// WrappedForm.render
 
 export default WrappedForm;

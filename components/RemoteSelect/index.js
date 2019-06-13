@@ -28,6 +28,7 @@ function RemoteSelect({
   const [options, setOptions] = useState([]);
 
   async function handleSearch(value) {
+    setFetch(true);
     const { list } = await fetchApi({ [optionKey]: value });
     setFetch(false);
     setOptions(list);
@@ -61,7 +62,7 @@ RemoteSelect.propTypes = {
 RemoteSelect.defaultProps = {
   onSelect: noop,
   showArrow: false,
-  delay: 800,
+  delay: 300,
   style: { width: 200 },
 };
 
