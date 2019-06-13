@@ -5,11 +5,10 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: './components/index.js',
-  // devtool: 'cheap-eval-source-map',
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'lib'),
-    library: 'antdWrapped',
+    library: 'AntdWrapped',
     libraryTarget: 'umd',
   },
   resolve: {
