@@ -21,6 +21,7 @@ module.exports = {
     antd: 'antd',
     react: 'React',
     lodash: 'loadsh',
+    'antd-wrapped': 'antd-wrapped',
     'lodash.debounce': 'lodash.debounce',
     'prop-types': 'prop-types',
     'react-router-dom': 'react-router-dom',

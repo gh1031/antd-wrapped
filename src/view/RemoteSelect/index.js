@@ -3,8 +3,8 @@ import RemoteSelect from '@/components/RemoteSelect';
 import { message } from 'antd';
 
 const handleFetch = params => new Promise((resolve) => {
-  // message.success(`${Object.keys(params)[0]}: ${Object.values(params)[0]}`);
-  const genOptions = (string) => {
+  message.success(`${Object.keys(params)[0]}: ${Object.values(params)[0]}`);
+  const genOptions = () => {
     const list = [];
     for (let i = 0; i < 8; i += 1) {
       list.push({
