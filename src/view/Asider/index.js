@@ -31,11 +31,6 @@ const menus = [
     icon: 'taobao',
   },
   {
-    title: 'upload',
-    path: '/upload',
-    icon: 'upload',
-  },
-  {
     title: 'components',
     icon: 'alipay',
     children: [
@@ -68,7 +63,7 @@ const menus = [
   },
 ];
 
-const newMenus = recursionRewriteFields(menus);
+// const newMenus = recursionRewriteFields(menus);
 const { Sider } = Layout;
 const style = {
   fontSize: 24,
@@ -77,12 +72,14 @@ const style = {
 
 const Asider = (props) => {
   const [collapsed, setCollapsed] = useState(false);
+  const { menus } = props;
   const toggleMenu = () => setCollapsed(!collapsed);
   const onClick = async () => {
     const { globalLoading } = props;
     await delayOperation(globalLoading, { globalLoading: true });
     delayOperation(globalLoading, { globalLoading: false }, 200);
   };
+  const newMenus = recursionRewriteFields(menus);
   return (
     <Sider collapsed={collapsed} theme="light">
       <section style={style}>
@@ -95,10 +92,12 @@ const Asider = (props) => {
 
 Asider.propTypes = {
   globalLoading: PropTypes.func,
+  menus: PropTypes.array,
 };
 
 Asider.defaultProps = {
   globalLoading: () => {},
+  menus: [],
 };
 
 export default connect(null, actions.global)(Asider);

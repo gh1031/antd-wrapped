@@ -15,6 +15,14 @@ module.exports = merge(base, {
     logTime: true,
     overlay: true,
     proxy: {
+      "/proxy/": {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false,
+        pathRewrite: {
+          "/proxy/": "/",
+        }
+      }
     }
   },
   plugins: [
