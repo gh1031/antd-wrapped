@@ -16,7 +16,8 @@ module.exports = merge(base, {
     overlay: true,
     proxy: {
       "/proxy/": {
-        target: 'http://localhost:3000',
+        // target: 'http://localhost:3000',
+        target: 'http://34.92.254.140:3000',
         changeOrigin: true,
         secure: false,
         pathRewrite: {

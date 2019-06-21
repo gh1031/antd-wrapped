@@ -20,7 +20,7 @@ class Main extends PureComponent {
 
   async componentDidMount() {
     const res = await getMenu();
-    const { data: { list } } = res;
+    const { list } = res;
     this.setState({ menus: list });
   }
 

@@ -17,14 +17,16 @@ axios.interceptors.request.use(
 );
 
 function handleResponseSuccess(response) {
-  const { data } = response;
+  const { data, config } = response;
+  if (config.skip) return response;
+
   if (data.success) {
     message.success(data.message);
   } else {
     message.error(data.message);
     throw Error(data.message);
   }
-  return response;
+  return data.data;
 }
 
 function handleResponseError(error) {
