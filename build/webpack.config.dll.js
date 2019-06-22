@@ -10,6 +10,7 @@ module.exports = {
     extensions: ['.js', '.json'],
   },
   entry: [
+    'axios',
     'antd',
     'lodash',
     'react',

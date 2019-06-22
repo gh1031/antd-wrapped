@@ -6,7 +6,7 @@ function handleRequestSuccess(config) {
 }
 
 function handleRequestError(error) {
-  message.error(error);
+  message.error(error, 'error');
   return Promise.reject(error);
 }
 
@@ -30,7 +30,15 @@ function handleResponseSuccess(response) {
 }
 
 function handleResponseError(error) {
-  message.error(error);
+  const { status } = error.response;
+  if (/^5\d\d$/.tesst(status)) {
+    message.error('接口挂了！');
+  } else if (status === 404) {
+    message.error('找不到接口！');
+  } else {
+    message.error('系统开小差');
+  }
+  console.log('[error response]: ', error.response); // eslint-disable-line
   return Promise.reject(error);
 }
 
