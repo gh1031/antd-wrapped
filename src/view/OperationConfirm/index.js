@@ -1,5 +1,5 @@
 import React from 'react';
-import { OperationConfirm } from 'antd-wrapped';
+import { OperationConfirm } from '@/lib';
 
 const Component = () => <OperationConfirm onConfirm={() => {}} />;
 

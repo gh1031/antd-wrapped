@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { message } from 'antd';
 
+const { log } = console;
+
 function handleRequestSuccess(config) {
   return config;
 }
@@ -19,7 +21,6 @@ axios.interceptors.request.use(
 function handleResponseSuccess(response) {
   const { data, config } = response;
   if (config.skip) return response;
-
   if (data.success) {
     message.success(data.message);
   } else {
@@ -31,14 +32,14 @@ function handleResponseSuccess(response) {
 
 function handleResponseError(error) {
   const { status } = error.response;
-  if (/^5\d\d$/.tesst(status)) {
+  if (/^5\d\d$/.test(status)) {
     message.error('接口挂了！');
   } else if (status === 404) {
     message.error('找不到接口！');
   } else {
     message.error('系统开小差');
   }
-  console.log('[error response]: ', error.response); // eslint-disable-line
+  log('[error response]: ', error.response);
   return Promise.reject(error);
 }
 

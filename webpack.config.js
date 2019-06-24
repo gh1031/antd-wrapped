@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './components/index.js',
   output: {
     filename: 'index.js',
@@ -19,9 +19,8 @@ module.exports = {
   },
   externals: {
     antd: 'antd',
-    react: 'React',
+    react: 'react',
     lodash: 'loadsh',
-    'antd-wrapped': 'antd-wrapped',
     'lodash.debounce': 'lodash.debounce',
     'prop-types': 'prop-types',
     'react-router-dom': 'react-router-dom',

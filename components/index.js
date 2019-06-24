@@ -1,17 +1,17 @@
 import OperationConfirm from './OperationConfirm';
-// import RemoteSelect from './RemoteSelect';
+import RemoteSelect from './RemoteSelect';
 import withPagination from './withPagination';
 import WrappedMenu from './WrappedMenu';
-// import WrappedUpload from './WrappedUpload';
+import WrappedUpload from './WrappedUpload';
 import WrappedForm from './WrappedForm';
 import WrappedCard from './WrappedCard';
 
 export {
   OperationConfirm,
-  // RemoteSelect,
+  RemoteSelect,
   withPagination,
   WrappedMenu,
-  // WrappedUpload,
+  WrappedUpload,
   WrappedForm,
   WrappedCard,
 };
