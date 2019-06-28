@@ -28,6 +28,7 @@ const config = {
       '@': resolve('..'),
       view: resolve('../src/view'),
       src: resolve('../src'),
+      lib: resolve('../lib'),
     },
   },
   module: {

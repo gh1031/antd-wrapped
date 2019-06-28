@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Asider from 'view/Asider';
 import GlobalLoading from '@/components/Indicator';
 import { connect } from 'react-redux';
-// eslint-disable-next-line import/no-unresolved
 import ErrorBoundary from 'src/common/ErrorBoundary';
 
 import Header from './Header';

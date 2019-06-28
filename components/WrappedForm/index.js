@@ -45,11 +45,6 @@ const WrappedForm = (props) => {
       ...formItemProps,
     };
 
-    // const pickeToFieldOptions = pickProps(formItemMeta, [
-    //   'initialValue',
-    //   'rules',
-    //   'valuePropName',
-    // ]);
     const { rules = [] } = formItemProps;
     if (required) {
       formItemProps.rules = [
@@ -95,7 +90,7 @@ const WrappedForm = (props) => {
     const { formItems, columns = 1, gutter = 0 } = meta;
     const span = Math.floor(24 / columns);
     const cols = formItems.map(form => (
-      <Col span={span} key={form.key || Math.random().toFixed(4)}>
+      <Col span={span} key={form.key || Math.random().toFixed(4)} {...(form.colSpan || {})}>
         {renderFormItem(form)}
       </Col>
     ));

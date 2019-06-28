@@ -18,6 +18,8 @@ const config = {
             alias: {
               '@': path.resolve(__dirname),
               view: path.resolve(__dirname, './src/view'),
+              src: path.resolve(__dirname, './src'),
+              lib: path.resolve(__dirname, './lib'),
             },
           },
         },

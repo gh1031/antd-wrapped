@@ -4,14 +4,11 @@ import { Layout, Icon } from 'antd';
 import { connect } from 'react-redux';
 import WrappedMenu from '@/components/WrappedMenu';
 import { recursionRewriteFields } from '@/components/utils/lang';
-// eslint-disable-next-line import/no-unresolved
 import delayOperation from 'src/utils/delay';
-// eslint-disable-next-line import/no-unresolved
 import { actions } from 'src/store/reducer/global';
 import PropTypes from 'prop-types';
 import {
   component,
-  // eslint-disable-next-line import/no-unresolved
 } from 'src/constant/routes';
 
 const menus = [

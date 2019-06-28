@@ -12,6 +12,8 @@ yarn add antd-wrapped
 import {
   WrappedForm,
   WrappedMenu,
+  WrappedUpload,
+  RemoteSelect,
   OperationConfirm,
 } from 'antd-wrapped';
 import 'antd-wrapped/index.css';
@@ -19,6 +21,4 @@ import 'antd-wrapped/index.css';
 
 ## Docs
 
-[MoreInfo](https://github.com/gh1031/antd-wrapped/tree/dev/docs)
-
-git test
+[Docs](https://github.com/gh1031/antd-wrapped/tree/dev/docs)
