@@ -2,19 +2,19 @@
 import React, { useState } from 'react';
 import { Layout, Icon } from 'antd';
 import { connect } from 'react-redux';
-import WrappedMenu from '@/components/WrappedMenu';
-import { recursionRewriteFields } from '@/components/utils/lang';
 import delayOperation from 'src/utils/delay';
 import { actions } from 'src/store/reducer/global';
 import PropTypes from 'prop-types';
 import {
   component,
 } from 'src/constant/routes';
+import { recursionRewriteFields } from '@/components/utils/lang';
+import WrappedMenu from '@/components/WrappedMenu';
 
 const menus = [
   {
-    title: 'install',
-    path: '/install',
+    title: 'Setting',
+    path: '/Setting',
     icon: 'setting',
   },
   {
@@ -65,6 +65,8 @@ const { Sider } = Layout;
 const style = {
   fontSize: 24,
   textAlign: 'center',
+  borderBottom: '1px solid #ccc',
+  boxShadow: '0 4px 4px #ccc',
 };
 
 const Asider = (props) => {
@@ -80,7 +82,7 @@ const Asider = (props) => {
   return (
     <Sider collapsed={collapsed} theme="light">
       <section style={style}>
-        <Icon type="switcher" onClick={toggleMenu} />
+        <Icon type="menu" onClick={toggleMenu} />
       </section>
       <WrappedMenu menus={newMenus} onClick={onClick} />
     </Sider>

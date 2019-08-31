@@ -4,7 +4,7 @@ node_js:
 branchs:
   only:
     - gh-pages
-install:
+Setting:
   - yarn
 script:
   - yarn run build:website

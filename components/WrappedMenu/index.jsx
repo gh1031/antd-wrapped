@@ -1,32 +1,60 @@
 import React, { Fragment } from 'react';
 import { Menu, Icon } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import commonStyle from '@/components/common.less';
 import { noop } from '@/components/utils/lang';
-
 
 const { SubMenu, Item } = Menu;
 function WrappedMenu(props) {
   const {
     menus = [],
     renderTitle,
-    ...data
+    ...rest
   } = props;
+  /**
+   *
+   * @param {Array} menus
+   * @description 渲染菜单项
+   */
   const renderMenu = menus => menus.map((menu) => {
     if (menu.children) {
       return (
-        <SubMenu title={renderTitle(menu)} key={menu.key}>
+        <SubMenu title={renderTitle(menu)} key={menu.path}>
           {renderMenu(menu.children)}
         </SubMenu>
       );
     }
-    return (<Item key={menu.key}><Link to={menu.path}>{renderTitle(menu)}</Link></Item>);
+    return (<Item key={menu.path}><Link to={menu.path}>{renderTitle(menu)}</Link></Item>);
   });
 
+  /**
+   * @description 获取当前打开的菜单
+   */
+  const getOpenKeys = () => {
+    const { location: { pathname } } = rest;
+    const matched = [];
+    menus.forEach(menu => {
+      if (menu.path === pathname) {
+        matched.push(pathname);
+      }
+      if (menu.children) {
+        menu.children.forEach(subMenu => {
+          if (subMenu.path === pathname) {
+            matched.push(menu.path);
+          }
+        });
+      }
+    });
+    return matched;
+  };
   return (
     <Menu
-      {...data}
+      mode={rest.mode}
+      theme={rest.theme}
+      onClick={rest.onClick}
+      openKeys={getOpenKeys()}
+      selectedKeys={[rest.location.pathname]}
     >
       {renderMenu(menus)}
     </Menu>
@@ -53,4 +81,4 @@ WrappedMenu.defaultProps = {
   onClick: noop,
 };
 
-export default WrappedMenu;
+export default withRouter(WrappedMenu);

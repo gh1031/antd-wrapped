@@ -1,8 +1,5 @@
 import axios from 'axios';
 
+const prefix = process.env.PROXY_BASE;
 export const handleIncrement = payload => payload;
 export const handleDecrement = payload => payload;
-
-export function getMenu() {
-  return axios.get('/proxy/users/menus', { test: 1, skip: true });
-}

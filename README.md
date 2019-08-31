@@ -1,7 +1,7 @@
-## Install
+## Setting
 
 ```bash
-npm install antd-wrapped --save
+npm Setting antd-wrapped --save
 # 或
 yarn add antd-wrapped
 ```

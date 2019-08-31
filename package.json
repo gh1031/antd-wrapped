@@ -10,16 +10,21 @@
     "docs"
   ],
   "scripts": {
+    "prestart": "echo begin start",
     "start": "NODE_ENV=development concurrently \"npm:dll\" \"npm run dev\"",
-    "build": "rm -rf lib && webpack",
-    "build:website": "NODE_ENV=production concurrently \"npm:clean\" \"npm:dll\" \"npm:prod\" ",
+    "poststart": "echo stop start ",
+    "test": "jest",
+    "build": "rm -rf lib && webpack -d",
+    "website": "NODE_ENV=production concurrently \"npm:clean\" \"npm:dll\" \"npm:prod\" ",
     "dev": " npm run dll && webpack-dev-server --config ./build/webpack.config.dev.js ",
     "prod": "npm run dll && webpack --config ./build/webpack.config.prod.js",
     "dll": "webpack --config ./build/webpack.config.dll.js",
     "optimization:dev": "OPTIMIZATION=true npm run dev",
     "optimization:prod": "OPTIMIZATION=true npm run prod",
     "clean": "rm -rf ./dist/lib",
-    "deploy": "npm run build && npm publish"
+    "deploy": "npm run build && npm publish",
+    "lint": "eslint  --ext .js,.jsx src/** components/**",
+    "lint:fix": "eslint  --ext .js,.jsx --fix src/* components/*"
   },
   "peerDependencies": {
     "react": ">16.8.6",
@@ -28,8 +33,11 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "jest": "^24.8.0",
     "lodash": "^4.17.11",
     "lodash.debounce": "^4.0.8",
+    "lodash.isnil": "^4.0.0",
+    "lodash.omitby": "^4.6.0",
     "prop-types": "^15.7.2",
     "react-redux": "^7.0.3",
     "react-router-config": "^5.0.0",
@@ -37,12 +45,15 @@
     "redux": "^4.0.1",
     "redux-actions": "^2.6.5",
     "redux-logger": "^3.0.6",
-    "redux-promise": "^0.6.0"
+    "redux-promise": "^0.6.0",
+    "spin.js": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-react-jsx-source": "^7.5.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "antd": "^3.19.7",
@@ -50,7 +61,6 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-import": "^1.11.0",
-    "babel-plugin-transform-react-jsx-source": "^6.22.0",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
@@ -59,7 +69,7 @@
     "eslint-import-resolver-webpack": "^0.11.1",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.6.0",
     "hoist-non-react-statics": "^3.3.0",
     "html-webpack-include-assets-plugin": "^2.0.0",

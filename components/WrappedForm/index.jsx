@@ -32,7 +32,15 @@ const WrappedForm = (props) => {
       required,
     } = formItemMeta;
     const { getFieldDecorator } = form;
+
+    /**
+     * select formitem layout
+     */
     const realFormItemLayout = formItemLayout || meta.formItemLayout || defaultFormItemLayout;
+
+    /**
+     * merge formitem props
+     */
     const pickToFormItemProps = pickProps(formItemMeta, [
       'field',
       'label',
@@ -44,6 +52,10 @@ const WrappedForm = (props) => {
       ...realFormItemLayout,
       ...formItemProps,
     };
+
+    if (!mergedFormItemProps.field) {
+      mergedFormItemProps.field = ' ';
+    }
 
     const { rules = [] } = formItemProps;
     if (required) {
@@ -58,17 +70,24 @@ const WrappedForm = (props) => {
     const mergedFieldOptions = {
       ...formItemProps,
     };
-    const pickedComponentProps = pickProps(formItemMeta, [
-      'disabled',
-    ]);
 
-    if (!mergedFormItemProps.field) {
-      mergedFormItemProps.field = ' ';
-    }
+    /**
+     * merge component props
+     */
+    const pickedComponentProps = pickProps(formItemMeta, [
+      'children',
+      'disabled',
+      'placeholder',
+    ]);
+    const mergedComponentProps = {
+      ...componentProps,
+      ...pickedComponentProps,
+    };
+
 
     const comp = (
-      <Component {...componentProps} {...pickedComponentProps}>
-        {componentProps.children || null}
+      <Component {...mergedComponentProps}>
+        {mergedComponentProps.children || null}
       </Component>
     );
     if (!useFieldDecorator) {

@@ -1,14 +1,16 @@
-const off = 0;
-const warn = 1;
-const error = 2;
-const isGit = (process.env.ESLIT_ENV = 'GIT');
+const OFF = 0;
+const WARN = 1;
+const ERROR = 2;
+const isGit = (process.env.ESLIT_ENV === 'GIT');
 const path = require('path');
+const webpack = require('webpack');
 
 const config = {
   parser: 'babel-eslint',
   env: {
     browser: true,
     node: true,
+    jest: true,
   },
   settings: {
     'import/resolver': {
@@ -34,21 +36,24 @@ const config = {
     },
   },
   plugins: ['react-hooks'],
-  extends: ['eslint:recommended', 'airbnb'],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'airbnb'],
   rules: {
-    'no-console': isGit ? error : warn,
-    'react/jsx-uses-react': warn,
-    'no-unused-vars': warn,
-    'react/jsx-filename-extension': off,
-    'react/forbid-prop-types': off,
-    'no-plusplus': off,
-    'global-require': off,
-    'import/no-extraneous-dependencies': off,
-    'jsx-a11y/anchor-is-valid': off,
-    'react-hooks/rules-of-hooks': error,
-    'react-hooks/exhaustive-deps': warn,
-    'no-shadow': off,
-    'no-underscore-dangle': off,
+    'no-console': isGit ? ERROR : WARN,
+    'react/jsx-uses-react': WARN,
+    'no-unused-vars': WARN,
+    'react/jsx-filename-extension': OFF,
+    'react/forbid-prop-types': OFF,
+    'no-plusplus': OFF,
+    'global-require': OFF,
+    'import/no-extraneous-dependencies': OFF,
+    'jsx-a11y/anchor-is-valid': OFF,
+    'react-hooks/rules-of-hooks': ERROR,
+    'react-hooks/exhaustive-deps': WARN,
+    'no-shadow': OFF,
+    'no-underscore-dangle': OFF,
+    'arrow-parens': OFF,
+    'import/no-unresolved': OFF,
+    'import/prefer-default-export': OFF,
   },
 };
 

@@ -1,7 +1,7 @@
 ## 安装
 
 ```bash
-npm install antd-wrapped
+npm Setting antd-wrapped
 # 或
 yarn add antd-warpped
 ```

@@ -1,20 +1,13 @@
-import ReduxPromise from 'view/ReduxPromise';
-import Main from 'view/Main';
-import Login from 'view/Login';
-import Registry from 'view/Registry';
+import React from 'react';
 import NoContent from 'view/NoContent';
 import NotFound from 'view/NotFound';
-import Install from 'view/Install';
-
-import WrappedUpload from 'view/Upload';
-import WrappedMenu from 'view/WrappedMenu';
-import RemoteSelect from 'view/RemoteSelect';
-import OperationConfirm from 'view/OperationConfirm';
-import WrappedForm from 'view/WrappedForm';
+import Login from 'view/Login';
+import Registry from 'view/Registry';
+import Main from 'view/Main';
 
 
 import {
-  install,
+  setting,
   router2,
   reactPromise,
   registry,
@@ -22,6 +15,14 @@ import {
   root,
   component,
 } from './constant/routes';
+
+const ReduxPromise = React.lazy(() => import('view/ReduxPromise'));
+const Setting = React.lazy(() => import('view/Setting'));
+const WrappedUpload = React.lazy(() => import('view/Upload'));
+const WrappedMenu = React.lazy(() => import('view/WrappedMenu'));
+const RemoteSelect = React.lazy(() => import('view/RemoteSelect'));
+const OperationConfirm = React.lazy(() => import('view/OperationConfirm'));
+const WrappedForm = React.lazy(() => import('view/WrappedForm'));
 
 const routes = [
   {
@@ -43,8 +44,8 @@ const routes = [
         component: ReduxPromise,
       },
       {
-        path: install,
-        component: Install,
+        path: setting,
+        component: Setting,
       },
       {
         path: router2,

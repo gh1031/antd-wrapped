@@ -1,0 +1,20 @@
+.login-wrapper {
+  display: flex;
+  height: 100%;
+}
+.login-box {
+  margin: auto;
+  width: 30%;
+  height: 30%;
+  padding: 48px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  box-shadow: 0 0 10px #eeaaff;
+}
+
+.btn {
+  width: 120px;
+}
+.login-btn {
+  margin-right: 8px;
+}

@@ -3,13 +3,13 @@ import { renderRoutes } from 'react-router-config';
 import { Layout } from 'antd';
 import PropTypes from 'prop-types';
 import Asider from 'view/Asider';
-import GlobalLoading from '@/components/Indicator';
 import { connect } from 'react-redux';
 import ErrorBoundary from 'src/common/ErrorBoundary';
+import { fetchMenus } from 'src/api/users';
+import GlobalLoading from '@/components/Indicator';
 
 import Header from './Header';
 import styles from './index.less';
-import { getMenu } from '../../api';
 
 const { Content } = Layout;
 class Main extends PureComponent {
@@ -18,7 +18,7 @@ class Main extends PureComponent {
   };
 
   async componentDidMount() {
-    const res = await getMenu();
+    const res = await fetchMenus();
     const { list } = res;
     this.setState({ menus: list });
   }

@@ -15,7 +15,7 @@ const config = {
   // devtool: isProd ? 'source-map' : 'cheap-eval-source-map',
   devtool: 'source-map',
   entry: {
-    index: './src/index.js',
+    index: resolve('../src/index.js'),
   },
   output: {
     path: resolve('../dist'),
@@ -87,6 +87,7 @@ const config = {
     // new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.PROXY_BASE': JSON.stringify('/api')
     }),
   ],
 };

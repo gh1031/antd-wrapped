@@ -21,11 +21,9 @@ axios.interceptors.request.use(
 function handleResponseSuccess(response) {
   const { data, config } = response;
   if (config.skip) return response;
-  if (data.success) {
-    message.success(data.message);
-  } else {
-    message.error(data.message);
-    throw Error(data.message);
+  if (!data.success) {
+    message.error(data.errorMsg);
+    return Promise.reject(data.errorMsg);
   }
   return data.data;
 }

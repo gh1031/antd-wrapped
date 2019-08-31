@@ -4,7 +4,7 @@
 
 export const registry = '/registry';
 export const login = '/login';
-export const install = '/install';
+export const setting = '/setting';
 export const router2 = '/router2';
 export const reactPromise = '/react_promise';
 export const root = '/';

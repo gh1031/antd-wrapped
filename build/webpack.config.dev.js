@@ -15,13 +15,13 @@ module.exports = merge(base, {
     logTime: true,
     overlay: true,
     proxy: {
-      "/proxy/": {
+      '/api': {
         target: 'http://localhost:3000',
         // target: 'http://34.92.254.140:3000',
         changeOrigin: true,
         secure: false,
         pathRewrite: {
-          "/proxy/": "/",
+          '/api': "/",
         }
       }
     }
