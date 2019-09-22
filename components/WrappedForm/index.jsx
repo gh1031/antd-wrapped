@@ -34,7 +34,7 @@ const WrappedForm = (props) => {
     const { getFieldDecorator } = form;
 
     /**
-     * select formitem layout
+     * select formItem layout
      */
     const realFormItemLayout = formItemLayout || meta.formItemLayout || defaultFormItemLayout;
 
@@ -135,7 +135,7 @@ WrappedForm.renderOptions = (
   options,
 ) => {
   if (!Array.isArray(array)) {
-    throw Error('The first argument must be an array type!');
+    throw Error('The first argument must be an array!');
   }
   const {
     titleKey = 'title',

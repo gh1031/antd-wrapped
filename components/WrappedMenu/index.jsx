@@ -48,12 +48,13 @@ function WrappedMenu(props) {
     });
     return matched;
   };
+
   return (
     <Menu
       mode={rest.mode}
       theme={rest.theme}
       onClick={rest.onClick}
-      openKeys={getOpenKeys()}
+      defaultOpenKeys={getOpenKeys()}
       selectedKeys={[rest.location.pathname]}
     >
       {renderMenu(menus)}

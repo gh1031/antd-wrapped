@@ -18,7 +18,7 @@
     "website": "NODE_ENV=production concurrently \"npm:clean\" \"npm:dll\" \"npm:prod\" ",
     "dev": " npm run dll && webpack-dev-server --config ./build/webpack.config.dev.js ",
     "prod": "npm run dll && webpack --config ./build/webpack.config.prod.js",
-    "dll": "webpack --config ./build/webpack.config.dll.js",
+    "dll": "webpack --config ./build/webpack.config.dll.js --silent",
     "optimization:dev": "OPTIMIZATION=true npm run dev",
     "optimization:prod": "OPTIMIZATION=true npm run prod",
     "clean": "rm -rf ./dist/lib",

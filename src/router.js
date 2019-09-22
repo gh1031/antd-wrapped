@@ -4,6 +4,7 @@ import NotFound from 'view/NotFound';
 import Login from 'view/Login';
 import Registry from 'view/Registry';
 import Main from 'view/Main';
+import { Redirect } from 'react-router';
 
 
 import {
@@ -14,6 +15,7 @@ import {
   login,
   root,
   component,
+  mouse,
 } from './constant/routes';
 
 const ReduxPromise = React.lazy(() => import('view/ReduxPromise'));
@@ -23,7 +25,7 @@ const WrappedMenu = React.lazy(() => import('view/WrappedMenu'));
 const RemoteSelect = React.lazy(() => import('view/RemoteSelect'));
 const OperationConfirm = React.lazy(() => import('view/OperationConfirm'));
 const WrappedForm = React.lazy(() => import('view/WrappedForm'));
-
+const MouseMove = React.lazy(() => import('view/Mouse/Move'));
 const routes = [
   {
     path: login,
@@ -39,6 +41,14 @@ const routes = [
     path: root,
     component: Main,
     routes: [
+      /**
+       * 子路由重定向
+       */
+      {
+        path: root,
+        exact: true,
+        component: () => <Redirect to={component.wrapped_menu} />,
+      },
       {
         path: reactPromise,
         component: ReduxPromise,
@@ -70,6 +80,10 @@ const routes = [
       {
         path: component.wrapped_form,
         component: WrappedForm,
+      },
+      {
+        path: mouse.mouse_move,
+        component: MouseMove,
       },
       {
         component: NotFound,

@@ -54,6 +54,8 @@ const config = {
     'arrow-parens': OFF,
     'import/no-unresolved': OFF,
     'import/prefer-default-export': OFF,
+    'react/jsx-one-expression-per-line': OFF,
+    'consistent-return': OFF,
   },
 };
 

@@ -16,3 +16,7 @@ export const component = {
   wrapped_upload: '/components/wrapped_upload',
   wrapped_form: '/components/wrapped_form',
 };
+
+export const mouse = {
+  mouse_move: '/event/mouse_move',
+};
