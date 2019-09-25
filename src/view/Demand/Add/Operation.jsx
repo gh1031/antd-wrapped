@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { Button } from 'antd';
 import PropTypes from 'prop-types';
-import commonStyle from 'src/style/common.less';
+import commonStyle from '@/src/style/common.less';
 
 const Operation = ({ handleSubmit, handleReset }) => (
   <>

@@ -7,7 +7,7 @@ const { resolve } = require('./util');
 module.exports = {
   mode: isProd ? 'production' : 'development',
   resolve: {
-    extensions: ['.js', '.json'],
+    extensions: ['.js', 'jsx','.ts', '.tsx','.json'],
   },
   entry: [
     'axios',

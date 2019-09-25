@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 import { Button, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
-import { login } from 'src/api/users';
 import PropTypes from 'prop-types';
+import { login } from '@/src/api/users';
 import WrappedForm from '@/components/WrappedForm';
 import { omitEmptyParams } from '@/components/utils/lang';
 import styles from './index.css';

@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import { renderRoutes } from 'react-router-config';
 import { Layout } from 'antd';
 import PropTypes from 'prop-types';
-import Asider from 'view/Asider';
 import { connect } from 'react-redux';
-import ErrorBoundary from 'src/common/ErrorBoundary';
-import { fetchMenus } from 'src/api/users';
+import ErrorBoundary from '@/src/common/ErrorBoundary';
+import { fetchMenus } from '@/src/api/users';
+import Asider from '@/src/view/Asider';
 import GlobalLoading from '@/components/Indicator';
 
 import Header from './Header';

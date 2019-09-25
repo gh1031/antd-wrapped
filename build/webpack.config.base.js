@@ -11,7 +11,6 @@ const DIR_MAP = require('./constant');
 const manifest = require('../dist/dll__mainfest.json');
 require('./env');
 
-console.log(process.env.NODE_ENV)
 const config = {
   mode: process.env.NODE_ENV,
   // devtool: isProd ? 'source-map' : 'cheap-eval-source-map',
@@ -25,18 +24,15 @@ const config = {
     filename: isProd ? '[name].[contenthash].js' : '[name].js',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
       '@': resolve('..'),
-      view: resolve('../src/view'),
-      src: resolve('../src'),
-      lib: resolve('../lib'),
     },
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: DIR_MAP.node_modules,
         use: [
           {

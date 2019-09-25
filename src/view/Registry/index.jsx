@@ -3,11 +3,11 @@ import {
   Button, Form, Input, message,
 } from 'antd';
 import { Link } from 'react-router-dom';
-import { registry } from 'src/api/users';
 import PropTypes from 'prop-types';
+import { registry } from '@/src/api/users';
 import WrappedForm from '@/components/WrappedForm';
-import styles from './index.css';
 import { omitEmptyParams } from '@/components/utils/lang';
+import styles from './index.css';
 
 
 const LoginBtnGroup = forwardRef(({

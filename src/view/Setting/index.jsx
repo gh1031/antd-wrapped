@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import {
   Form, Input, Button, message, Select,
 } from 'antd';
-// import RemoteSelect from '@/components/RemoteSelect';
-import { updateMenus } from 'src/api/setting';
-import { fetchMenus } from 'src/api/users';
 import PropTypes from 'prop-types';
+import { updateMenus } from '@/src/api/setting';
+import { fetchMenus } from '@/src/api/users';
 import WrappedForm from '@/components/WrappedForm';
 import { omitEmptyParams } from '@/components/utils/lang';
 

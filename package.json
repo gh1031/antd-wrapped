@@ -21,8 +21,8 @@
     "optimization:prod": "OPTIMIZATION=true npm run prod",
     "clean": "rm -rf ./dist/lib",
     "deploy": "npm run build && npm publish",
-    "lint": "eslint  --ext .js,.jsx src/** components/**",
-    "lint:fix": "eslint  --ext .js,.jsx --fix src/* components/*"
+    "lint": "eslint  --ext .js,.jsx,.ts,.tsx src/** components/**",
+    "lint:fix": "eslint  --ext .js,.jsx,.ts,.tsx, --fix src/* components/*"
   },
   "peerDependencies": {
     "react": ">16.8.6",
@@ -30,6 +30,8 @@
     "antd": ">3.16.1"
   },
   "dependencies": {
+    "@types/react": "^16.9.3",
+    "@types/react-dom": "^16.9.1",
     "axios": "^0.19.0",
     "dotenv": "^8.1.0",
     "dotenv-expand": "^5.1.0",
@@ -50,12 +52,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-transform-react-jsx-source": "^7.5.0",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.6.0",
     "antd": "^3.19.7",
     "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.1",

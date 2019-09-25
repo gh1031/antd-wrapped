@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import { Layout, Icon } from 'antd';
 import { connect } from 'react-redux';
-import delayOperation from 'src/utils/delay';
-import { actions } from 'src/store/reducer/global';
 import PropTypes from 'prop-types';
+import delayOperation from '@/src/utils/delay';
+import { actions } from '@/src/store/reducer/global';
 import {
   component,
-} from 'src/constant/routes';
+} from '@/src/constant/routes';
 import { recursionRewriteFields } from '@/components/utils/lang';
 import WrappedMenu from '@/components/WrappedMenu';
 

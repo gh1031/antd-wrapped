@@ -11,7 +11,7 @@ const dotEnvFiles = [
   `${basePath}/.env.development.local`,
   `${basePath}/.env.development`
 ]
-console.log(dotEnvFiles)
+
 dotEnvFiles.forEach(filePath => {
   require('dotenv').config({
     path: filePath

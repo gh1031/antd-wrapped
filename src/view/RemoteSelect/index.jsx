@@ -1,6 +1,6 @@
 import React from 'react';
-import { RemoteSelect } from 'lib';
 import { message } from 'antd';
+import RemoteSelect from '@/components/RemoteSelect';
 
 const handleFetch = params => new Promise((resolve) => {
   message.success(`${Object.keys(params)[0]}: ${Object.values(params)[0]}`);

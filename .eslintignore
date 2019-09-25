@@ -4,3 +4,4 @@ dist/*
 lib/*
 build/*
 webpack.config.js
+tsconfig.json

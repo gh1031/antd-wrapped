@@ -1,10 +1,10 @@
 import React from 'react';
-import NoContent from 'view/NoContent';
-import NotFound from 'view/NotFound';
-import Login from 'view/Login';
-import Registry from 'view/Registry';
-import Main from 'view/Main';
 import { Redirect } from 'react-router';
+import NoContent from '@/src/view/NoContent';
+import NotFound from '@/src/view/NotFound';
+import Login from '@/src/view/Login';
+import Registry from '@/src/view/Registry';
+import Main from '@/src/view/Main';
 
 
 import {
@@ -19,16 +19,16 @@ import {
   demand,
 } from './constant/routes';
 
-const ReduxPromise = React.lazy(() => import('view/ReduxPromise'));
-const Setting = React.lazy(() => import('view/Setting'));
-const WrappedUpload = React.lazy(() => import('view/Upload'));
-const WrappedMenu = React.lazy(() => import('view/WrappedMenu'));
-const RemoteSelect = React.lazy(() => import('view/RemoteSelect'));
-const OperationConfirm = React.lazy(() => import('view/OperationConfirm'));
-const WrappedForm = React.lazy(() => import('view/WrappedForm'));
-const MouseMove = React.lazy(() => import('view/Mouse/Move'));
-const AddDemand = React.lazy(() => import('view/Demand/Add'));
-const DemandList = React.lazy(() => import('view/Demand/List'));
+const ReduxPromise = React.lazy(() => import('@/src/view/ReduxPromise'));
+const Setting = React.lazy(() => import('@/src/view/Setting'));
+const WrappedUpload = React.lazy(() => import('@/src/view/Upload'));
+const WrappedMenu = React.lazy(() => import('@/src/view/WrappedMenu'));
+const RemoteSelect = React.lazy(() => import('@/src/view/RemoteSelect'));
+const OperationConfirm = React.lazy(() => import('@/src/view/OperationConfirm'));
+const WrappedForm = React.lazy(() => import('@/src/view/WrappedForm'));
+const MouseMove = React.lazy(() => import('@/src/view/Mouse/Move'));
+const AddDemand = React.lazy(() => import('@/src/view/Demand/Add'));
+const DemandList = React.lazy(() => import('@/src/view/Demand/List'));
 
 const routes = [
   {

@@ -4,6 +4,7 @@ import App from './App';
 import './utils/axios';
 import './index.less';
 import 'antd/dist/antd.css';
+import './test';
 
 if (module.hot && process.env.NODE_ENV === 'development') {
   module.hot.accept();
