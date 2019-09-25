@@ -20,3 +20,8 @@ export const component = {
 export const mouse = {
   mouse_move: '/event/mouse_move',
 };
+
+export const demand = {
+  demand_add: '/demand/add',
+  demand_list: '/demand/list',
+};

@@ -15,7 +15,7 @@
 | -------------- | ------ | -------------- |
 | columns        | Number | 表单的几列布局 |
 | formItemLayout | Object | 表单布局       |
-| elements       | Array  | 表单项         |
+| formItems       | Array  | 表单项         |
 
 **elements对象**
 

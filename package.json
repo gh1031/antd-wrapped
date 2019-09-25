@@ -10,12 +10,10 @@
     "docs"
   ],
   "scripts": {
-    "prestart": "echo begin start",
-    "start": "NODE_ENV=development concurrently \"npm:dll\" \"npm run dev\"",
-    "poststart": "echo stop start ",
+    "start": "concurrently \"npm:dll\" \"npm run dev\"",
     "test": "jest",
     "build": "rm -rf lib && webpack -d",
-    "website": "NODE_ENV=production concurrently \"npm:clean\" \"npm:dll\" \"npm:prod\" ",
+    "website": "concurrently \"npm:clean\" \"npm:dll\" \"npm:prod\" ",
     "dev": " npm run dll && webpack-dev-server --config ./build/webpack.config.dev.js ",
     "prod": "npm run dll && webpack --config ./build/webpack.config.prod.js",
     "dll": "webpack --config ./build/webpack.config.dll.js --silent",
@@ -33,6 +31,8 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "dotenv": "^8.1.0",
+    "dotenv-expand": "^5.1.0",
     "jest": "^24.8.0",
     "lodash": "^4.17.11",
     "lodash.debounce": "^4.0.8",

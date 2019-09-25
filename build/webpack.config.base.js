@@ -9,9 +9,11 @@ const isProd = process.env.NODE_ENV === 'production';
 const { resolve } = require('./util');
 const DIR_MAP = require('./constant');
 const manifest = require('../dist/dll__mainfest.json');
+require('./env');
 
+console.log(process.env.NODE_ENV)
 const config = {
-  mode: isProd ? 'production' : 'development',
+  mode: process.env.NODE_ENV,
   // devtool: isProd ? 'source-map' : 'cheap-eval-source-map',
   devtool: 'source-map',
   entry: {

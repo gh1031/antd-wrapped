@@ -16,6 +16,7 @@ import {
   root,
   component,
   mouse,
+  demand,
 } from './constant/routes';
 
 const ReduxPromise = React.lazy(() => import('view/ReduxPromise'));
@@ -26,6 +27,9 @@ const RemoteSelect = React.lazy(() => import('view/RemoteSelect'));
 const OperationConfirm = React.lazy(() => import('view/OperationConfirm'));
 const WrappedForm = React.lazy(() => import('view/WrappedForm'));
 const MouseMove = React.lazy(() => import('view/Mouse/Move'));
+const AddDemand = React.lazy(() => import('view/Demand/Add'));
+const DemandList = React.lazy(() => import('view/Demand/List'));
+
 const routes = [
   {
     path: login,
@@ -84,6 +88,14 @@ const routes = [
       {
         path: mouse.mouse_move,
         component: MouseMove,
+      },
+      {
+        path: demand.demand_add,
+        component: AddDemand,
+      },
+      {
+        path: demand.demand_list,
+        component: DemandList,
       },
       {
         component: NotFound,
