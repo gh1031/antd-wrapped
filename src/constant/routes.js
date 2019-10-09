@@ -22,6 +22,6 @@ export const mouse = {
 };
 
 export const demand = {
-  demand_add: '/demand/add',
-  demand_list: '/demand/list',
+  demand_add: '/demands/add',
+  demand_list: '/demands/list',
 };

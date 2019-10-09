@@ -140,7 +140,7 @@ WrappedForm.renderOptions = (
   const {
     titleKey = 'title',
     key = 'key',
-  } = options;
+  } = (options || {});
   const childern = [];
   if (!array.length) return null;
   for (let i = 0; i < array.length; i++) {

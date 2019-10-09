@@ -1,5 +1,10 @@
 console.log('babel running>>>>>>>>>>>>>>');
 
+const { MODULE_ENV, NODE_ENV } = process.env;
+
+const isCjs = MODULE_ENV === 'cjs';
+const isDev = NODE_ENV === 'development';
+
 module.exports = {
   plugins: [
     // antd 打入dll
@@ -16,5 +21,12 @@ module.exports = {
     ['@babel/plugin-proposal-decorators', { legacy: true, loose: true }],
     ['@babel/plugin-proposal-class-properties', { loose: true }],
   ],
-  presets: [['@babel/preset-env', { modules: false, useBuiltIns: 'usage' }], '@babel/preset-typescript'],
+  presets: [
+    [
+      '@babel/env',
+      ['cjs', 'es'].includes(MODULE_ENV) && { modules: isCjs ? 'cjs' : false, useBuiltIns: 'usage', corejs: 3 },
+      isDev && { targets: { node: 'current' } },
+    ].filter(Boolean),
+    '@babel/typescript',
+  ],
 };

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { Layout, Icon } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -24,7 +24,7 @@ const menus = [
   },
   {
     title: 'taobao',
-    path: '/taobeo',
+    path: '/taobao',
     icon: 'taobao',
   },
   {
@@ -58,9 +58,19 @@ const menus = [
       },
     ],
   },
+  {
+    title: '需求管理',
+    icon: '',
+    children: [{
+      title: '新增需求',
+      path: '/demands/add',
+    }, {
+      title: '需求列表',
+      path: '/demands/list',
+    }],
+  },
 ];
 
-// const newMenus = recursionRewriteFields(menus);
 const { Sider } = Layout;
 const style = {
   fontSize: 24,
@@ -69,16 +79,23 @@ const style = {
   boxShadow: '0 4px 4px #ccc',
 };
 
-const Asider = (props) => {
+interface IProps {
+  globalLoading: () => void;
+}
+
+const Asider: FC<IProps> = (props): React.ReactElement => {
   const [collapsed, setCollapsed] = useState(false);
-  const { menus } = props;
-  const toggleMenu = () => setCollapsed(!collapsed);
-  const onClick = async () => {
+  // const { menus } = props;
+  const toggleMenu = (): void => setCollapsed(!collapsed);
+
+  const onClick = async (): Promise<any> => {
     const { globalLoading } = props;
     await delayOperation(globalLoading, { globalLoading: true });
     delayOperation(globalLoading, { globalLoading: false }, 200);
   };
+
   const newMenus = recursionRewriteFields(menus);
+
   return (
     <Sider collapsed={collapsed} theme="light">
       <section style={style}>
@@ -91,12 +108,12 @@ const Asider = (props) => {
 
 Asider.propTypes = {
   globalLoading: PropTypes.func,
-  menus: PropTypes.array,
+  // menus: PropTypes.array,
 };
 
 Asider.defaultProps = {
   globalLoading: () => {},
-  menus: [],
+  // menus: [],
 };
 
 export default connect(null, actions.global)(Asider);

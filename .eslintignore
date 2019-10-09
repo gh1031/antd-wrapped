@@ -2,6 +2,8 @@ node_modules
 .*
 dist/*
 lib/*
+cjs/
+es/
 build/*
 webpack.config.js
 tsconfig.json

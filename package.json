@@ -12,7 +12,9 @@
   "scripts": {
     "start": "concurrently \"npm:dll\" \"npm run dev\"",
     "test": "jest",
-    "build": "rm -rf lib && webpack -d",
+    "build": "NODE_ENV=development rm -rf lib && webpack",
+    "build:esm": "NODE_ENV=production MODULE_ENV=esm babel components --out-dir es",
+    "build:cjs": "NODE_ENV=production MODULE_ENV=cjs babel components --out-dir cjs",
     "website": "concurrently \"npm:clean\" \"npm:dll\" \"npm:prod\" ",
     "dev": " npm run dll && webpack-dev-server --config ./build/webpack.config.dev.js ",
     "prod": "npm run dll && webpack --config ./build/webpack.config.prod.js",
@@ -32,7 +34,9 @@
   "dependencies": {
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",
+    "@types/react-router-dom": "^5.1.0",
     "axios": "^0.19.0",
+    "core-js": "^3.2.1",
     "dotenv": "^8.1.0",
     "dotenv-expand": "^5.1.0",
     "jest": "^24.8.0",
@@ -51,6 +55,7 @@
     "spin.js": "^4.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.6.2",
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.4.4",

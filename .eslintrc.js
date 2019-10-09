@@ -3,7 +3,6 @@ const WARN = 1;
 const ERROR = 2;
 const isGit = (process.env.ESLIT_ENV === 'GIT');
 const path = require('path');
-const webpack = require('webpack');
 
 const config = {
   parser: 'babel-eslint',
@@ -37,22 +36,23 @@ const config = {
   extends: ['eslint:recommended', 'plugin:react/recommended', 'airbnb'],
   rules: {
     'no-console': isGit ? ERROR : WARN,
-    'react/jsx-uses-react': WARN,
     'no-unused-vars': WARN,
-    'react/jsx-filename-extension': OFF,
-    'react/forbid-prop-types': OFF,
     'no-plusplus': OFF,
     'global-require': OFF,
     'import/no-extraneous-dependencies': OFF,
     'jsx-a11y/anchor-is-valid': OFF,
-    'react-hooks/rules-of-hooks': ERROR,
-    'react-hooks/exhaustive-deps': WARN,
     'no-shadow': OFF,
     'no-underscore-dangle': OFF,
     'arrow-parens': OFF,
     'import/no-unresolved': OFF,
     'import/prefer-default-export': OFF,
+    'react/jsx-filename-extension': OFF,
+    'react/forbid-prop-types': OFF,
+    'react/jsx-uses-react': WARN,
+    'react-hooks/rules-of-hooks': ERROR,
+    'react-hooks/exhaustive-deps': WARN,
     'react/jsx-one-expression-per-line': OFF,
+    'react/require-default-props': OFF,
     'consistent-return': OFF,
   },
 };
