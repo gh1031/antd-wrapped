@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import WrappedMenu from '@/components/WrappedMenu';
+import WrappedMenu from '@/components/wrappedMenu';
 import { recursionRewriteFields } from '@/components/utils/lang';
 
 const menus = [

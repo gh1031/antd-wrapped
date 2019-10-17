@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import { updateMenus } from '@/src/api/setting';
 import { fetchMenus } from '@/src/api/users';
-import WrappedForm from '@/components/WrappedForm';
+import WrappedForm from '@/components/wrappedForm';
 import { omitEmptyParams } from '@/components/utils/lang';
 
 const { Option } = Select;

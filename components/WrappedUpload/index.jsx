@@ -7,8 +7,8 @@ import {
   Modal,
 } from 'antd';
 import PropTypes from 'prop-types';
-import { isValidateImg } from './valideFile';
 import { noop } from '@/components/utils/lang';
+import { isValidateImg } from './valideFile';
 import './index.less';
 
 const { Dragger } = Upload;

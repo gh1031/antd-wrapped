@@ -9,7 +9,7 @@ import {
   component,
 } from '@/src/constant/routes';
 import { recursionRewriteFields } from '@/components/utils/lang';
-import WrappedMenu from '@/components/WrappedMenu';
+import WrappedMenu from '@/components/wrappedMenu';
 
 const menus = [
   {

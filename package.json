@@ -7,24 +7,28 @@
   "license": "MIT",
   "files": [
     "lib",
-    "docs"
+    "docs",
+    "es",
+    "dist"
   ],
   "scripts": {
     "start": "concurrently \"npm:dll\" \"npm run dev\"",
-    "test": "jest",
-    "build": "NODE_ENV=development rm -rf lib && webpack",
-    "build:esm": "NODE_ENV=production MODULE_ENV=esm babel components --out-dir es",
-    "build:cjs": "NODE_ENV=production MODULE_ENV=cjs babel components --out-dir cjs",
-    "website": "concurrently \"npm:clean\" \"npm:dll\" \"npm:prod\" ",
-    "dev": " npm run dll && webpack-dev-server --config ./build/webpack.config.dev.js ",
-    "prod": "npm run dll && webpack --config ./build/webpack.config.prod.js",
-    "dll": "webpack --config ./build/webpack.config.dll.js --silent",
+    "dev": " npm run dll && webpack-dev-server --config ./scripts/webpack.config.dev.js ",
+    "build:umd": "webpack",
+    "build:es": "NODE_ENV=production MODULE_ENV=es babel components --out-dir es",
+    "build:cjs": "NODE_ENV=production MODULE_ENV=cjs babel components --out-dir lib",
+    "build:website": "concurrently \"npm:clean\" \"npm:dll\" \"npm:prod\" ",
+    "build": "npm run clean && concurrently \"npm:build:umd\" \"npm:build:es\" \"npm:build:cjs\"",
+    "deploy": "npm run build && npm publish",
+    "prod": "npm run dll && webpack --config ./scripts/webpack.config.prod.js",
+    "dll": "webpack --config ./scripts/webpack.config.dll.js --silent",
     "optimization:dev": "OPTIMIZATION=true npm run dev",
     "optimization:prod": "OPTIMIZATION=true npm run prod",
-    "clean": "rm -rf ./dist/lib",
-    "deploy": "npm run build && npm publish",
+    "clean": "rm -rf dist es lib",
     "lint": "eslint  --ext .js,.jsx,.ts,.tsx src/** components/**",
-    "lint:fix": "eslint  --ext .js,.jsx,.ts,.tsx, --fix src/* components/*"
+    "lint:fix": "eslint  --ext .js,.jsx,.ts,.tsx, --fix src/* components/*",
+    "test": "jest",
+    "cm": "git-cz"
   },
   "peerDependencies": {
     "react": ">16.8.6",
@@ -69,6 +73,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-import": "^1.11.0",
+    "commitizen": "^4.0.3",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
@@ -113,5 +118,10 @@
     "*.js": [
       "cross-env ESLINT_ENV=GIT eslint"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

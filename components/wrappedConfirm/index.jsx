@@ -20,7 +20,6 @@ const OperationConfirm = ({
   </Popconfirm>
 );
 
-console.log(PropTypes, 'PropTypes');
 OperationConfirm.propTypes = {
   title: PropTypes.oneOfType([
     PropTypes.string,

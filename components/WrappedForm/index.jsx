@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Form,
   Col,
   Row,
   Select,
 } from 'antd';
-import PropTypes from 'prop-types';
 import { pickProps } from '@/components/utils/lang';
 
 const { Option } = Select;

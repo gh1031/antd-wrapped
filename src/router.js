@@ -105,4 +105,3 @@ const routes = [
 ];
 
 export default routes;
-console.log(1);

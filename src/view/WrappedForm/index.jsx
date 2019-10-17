@@ -10,8 +10,8 @@ import {
 } from 'antd';
 import cloneDeep from 'lodash/cloneDeep';
 import PropTypes from 'prop-types';
-import WrappedForm from '@/components/WrappedForm';
-import WrappedCard from '@/components/WrappedCard';
+import WrappedForm from '@/components/wrappedForm';
+import WrappedCard from '@/components/wrappedCard';
 import { statusList } from './constant';
 
 const { renderOptions } = WrappedForm;

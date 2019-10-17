@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const path = require('path');
 const base = require('./webpack.config.base');
 const { resolve } = require('./util');
 
@@ -21,10 +20,10 @@ module.exports = merge(base, {
         changeOrigin: true,
         secure: false,
         pathRewrite: {
-          '/api': "/",
-        }
-      }
-    }
+          '/api': '/',
+        },
+      },
+    },
   },
   plugins: [
     new webpack.DefinePlugin({

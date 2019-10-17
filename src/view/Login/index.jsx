@@ -3,7 +3,7 @@ import { Button, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { login } from '@/src/api/users';
-import WrappedForm from '@/components/WrappedForm';
+import WrappedForm from '@/components/wrappedForm';
 import { omitEmptyParams } from '@/components/utils/lang';
 import styles from './index.css';
 

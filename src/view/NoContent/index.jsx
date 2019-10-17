@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import RemoteSelect from '@/components/RemoteSelect';
+import RemoteSelect from '@/components/wrappedSelect';
 
 const NoContent = () => (
   <Fragment>

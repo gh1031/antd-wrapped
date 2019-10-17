@@ -4,12 +4,12 @@ import {
   Form, Input, Select, DatePicker,
 } from 'antd';
 import { WrappedFormUtils } from 'antd/lib/form/Form';
-import WrappedForm from '@/components/WrappedForm';
+import WrappedForm from '@/components/wrappedForm';
 import { addDemand } from '@/src/api/demand';
 import { toTimeStamp } from '@/src/utils/date';
 import { notEmptyArray } from '@/src/utils/lang';
 import Operation from './Operation';
-import WrappedUpload from '@/components/WrappedUpload';
+import WrappedUpload from '@/components/wrappedUpload';
 
 interface IProps {
   form: WrappedFormUtils

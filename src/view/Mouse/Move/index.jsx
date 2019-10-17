@@ -4,7 +4,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { Form } from 'antd';
 import useEventListener from '@/components/hooks/use-event-listener';
-import WrappedForm from '@/components/WrappedForm';
+import WrappedForm from '@/components/wrappedForm';
 
 const RenderCompnent = forwardRef(
   ({ name, pos }, ref) => <div ref={ref}>{name}X: {pos.x};  {name}y: {pos.y}</div>,

@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -19,7 +18,7 @@ const config = {
     index: resolve('../src/index.js'),
   },
   output: {
-    path: resolve('../dist'),
+    path: resolve('../build'),
     publicPath: '/',
     filename: isProd ? '[name].[contenthash].js' : '[name].js',
   },
@@ -32,7 +31,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/,
+        test: /\.(j|t)sx?$/,
         exclude: DIR_MAP.node_modules,
         use: [
           {
@@ -85,7 +84,7 @@ const config = {
     // new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      'process.env.PROXY_BASE': JSON.stringify('/api')
+      'process.env.PROXY_BASE': JSON.stringify('/api'),
     }),
   ],
 };

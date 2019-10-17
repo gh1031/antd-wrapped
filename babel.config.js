@@ -16,7 +16,6 @@ module.exports = {
     //     "style": "css"
     //   }
     // ],
-    ['@babel/plugin-syntax-dynamic-import'],
     ['@babel/plugin-transform-react-jsx'],
     ['@babel/plugin-proposal-decorators', { legacy: true, loose: true }],
     ['@babel/plugin-proposal-class-properties', { loose: true }],
