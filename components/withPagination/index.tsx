@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import HoistStatic from 'hoist-non-react-statics';
 import { message } from 'antd';
 

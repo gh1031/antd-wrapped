@@ -12,18 +12,27 @@ import React, { useState } from 'react';
 import { Select, Spin } from 'antd';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
-import { noop } from '@/components/utils/lang';
+import { noop } from '../utils/lang';
 
 const { Option } = Select;
 
-function RemoteSelect({
+interface IProps {
+  optionKey: string;
+  fetchApi: (params: { [key: string]: string}) => Promise<any>;
+  onSelect: () => void;
+  showArrow: boolean;
+  delay: number;
+  style: {};
+}
+
+function WrappedSelect({
   fetchApi,
   optionKey,
   onSelect,
   showArrow,
   delay,
   style,
-}) {
+}: IProps): React.ReactElement {
   const [fetching, setFetch] = useState(true);
   const [options, setOptions] = useState([]);
 
@@ -50,7 +59,7 @@ function RemoteSelect({
   );
 }
 
-RemoteSelect.propTypes = {
+WrappedSelect.propTypes = {
   fetchApi: PropTypes.func.isRequired,
   optionKey: PropTypes.string.isRequired,
   onSelect: PropTypes.func,
@@ -59,11 +68,11 @@ RemoteSelect.propTypes = {
   style: PropTypes.object,
 };
 
-RemoteSelect.defaultProps = {
+WrappedSelect.defaultProps = {
   onSelect: noop,
   showArrow: false,
   delay: 300,
   style: { width: 200 },
 };
 
-export default RemoteSelect;
+export default WrappedSelect;

@@ -1,16 +1,29 @@
 import React, { Fragment } from 'react';
 import { Menu, Icon } from 'antd';
-import { Link, withRouter } from 'react-router-dom';
+import { MenuProps } from 'antd/es/menu';
+import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import commonStyle from '@/components/common.less';
-import { noop } from '@/components/utils/lang';
+import { noop } from '../utils/lang';
+
+interface IMenuItem {
+  path: string;
+  children: IMenuItem[]
+}
+interface IProps extends MenuProps, RouteComponentProps {
+  menus: IMenuItem[];
+  renderTitle(menu: IMenuItem): React.ReactElement;
+  onClick(): void;
+}
 
 const { SubMenu, Item } = Menu;
-function WrappedMenu(props) {
+function WrappedMenu(props: IProps) {
   const {
     menus = [],
     renderTitle,
-    ...rest
+    mode,
+    theme,
+    location,
+    onClick,
   } = props;
   /**
    *
@@ -32,7 +45,7 @@ function WrappedMenu(props) {
    * @description 获取当前打开的菜单
    */
   const getOpenKeys = () => {
-    const { location: { pathname } } = rest;
+    const { pathname } = location;
     const matched = [];
     menus.forEach(menu => {
       if (menu.path === pathname) {
@@ -51,11 +64,11 @@ function WrappedMenu(props) {
 
   return (
     <Menu
-      mode={rest.mode}
-      theme={rest.theme}
-      onClick={rest.onClick}
+      mode={mode}
+      theme={theme}
+      onClick={onClick}
       defaultOpenKeys={getOpenKeys()}
-      selectedKeys={[rest.location.pathname]}
+      selectedKeys={[location.pathname]}
     >
       {renderMenu(menus)}
     </Menu>
@@ -75,7 +88,7 @@ WrappedMenu.defaultProps = {
   theme: 'light',
   renderTitle: menu => (
     <Fragment>
-      {menu.icon && <Icon type={menu.icon} className={commonStyle.mr8} />}
+      {menu.icon && <Icon type={menu.icon} style={{ marginRight: 4 }} />}
       <span>{menu.title}</span>
     </Fragment>
   ),

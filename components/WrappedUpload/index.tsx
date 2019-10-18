@@ -7,7 +7,7 @@ import {
   Modal,
 } from 'antd';
 import PropTypes from 'prop-types';
-import { noop } from '@/components/utils/lang';
+import { noop } from '../utils/lang';
 import { isValidateImg } from './valideFile';
 import './index.less';
 

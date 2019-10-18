@@ -1,41 +1,44 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Popconfirm } from 'antd';
+import { PopconfirmProps } from 'antd/es/popconfirm';
 import PropTypes from 'prop-types';
 
-const OperationConfirm = ({
+interface IProps extends PopconfirmProps{
+  btnText: string;
+}
+const WrappedConfirm: FC = ({
   title,
   okText,
   cancelText,
   onConfirm,
-  operationText,
-}) => (
+  btnText,
+}: IProps) => (
   <Popconfirm
     title={title}
     okText={okText}
     cancelText={cancelText}
     onConfirm={onConfirm}
-    operationText={operationText}
   >
-    <a>{operationText}</a>
+    <a>{btnText}</a>
   </Popconfirm>
 );
 
-OperationConfirm.propTypes = {
+WrappedConfirm.propTypes = {
   title: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
   ]),
   okText: PropTypes.string,
   cancelText: PropTypes.string,
-  operationText: PropTypes.string,
+  btnText: PropTypes.string,
   onConfirm: PropTypes.func.isRequired,
 };
 
-OperationConfirm.defaultProps = {
-  operationText: '删除',
+WrappedConfirm.defaultProps = {
+  btnText: '删除',
   title: '确认删除吗？',
   cancelText: '取消',
   okText: '确定',
 };
 
-export default OperationConfirm;
+export default WrappedConfirm;

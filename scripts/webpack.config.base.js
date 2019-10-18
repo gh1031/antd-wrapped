@@ -7,7 +7,7 @@ const HtmlWebpackAssetsPlugin = require('html-webpack-include-assets-plugin');
 const isProd = process.env.NODE_ENV === 'production';
 const { resolve } = require('./util');
 const DIR_MAP = require('./constant');
-const manifest = require('../dist/dll__mainfest.json');
+const manifest = require('../build/dll__mainfest.json');
 require('./env');
 
 const config = {

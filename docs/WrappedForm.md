@@ -24,7 +24,7 @@
 | 属性              | 说明                                  | 必选 |
 | ----------------- | ------------------------------------- | ---- |
 | label             | 标签文本                              | 是   |
-| field             | 表单项唯一标志                        | 是   |
+| key             | 表单项唯一标志                        | 是   |
 | component         | 表单组件类型                          | 是   |
 | componentProps    | 传给组件属性对象                      | 否   |
 | formItemProps     | 传给表单属性对象                      | 否   |
@@ -32,7 +32,7 @@
 | useFieldDecorator | 是否使用`getFieldDecorator`，默认使用 | 否   |
 | colon             | 是否使用冒号                          | 否   |
 | disabled          | 禁止表单                              | 否   |
-| p laceholder      | 提示符                                | 否   |
+| placeholder      | 提示符                                | 否   |
 | children          | 子元素                                | 否   |
 |                   |                                       |      |
 |                   |                                       |      |

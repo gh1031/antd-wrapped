@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Card } from 'antd';
+import { CardProps } from 'antd/es/card';
 import PropTypes from 'prop-types';
 
-const WrappedCard = ({
+interface IProps extends CardProps {}
+
+const WrappedCard: FC<IProps> = ({
   title,
   children,
 }) => (
@@ -25,7 +28,7 @@ WrappedCard.propTypes = {
 };
 
 WrappedCard.defaultProps = {
-  children: 'card',
+  children: 'wrapped card',
 };
 
 export default WrappedCard;

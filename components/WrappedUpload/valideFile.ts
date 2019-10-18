@@ -1,9 +1,9 @@
 import { message } from 'antd';
-import getFileInfo from '@/components/utils/file';
+import getFileInfo from '../utils/file';
 
 const duration = 3;
-// eslint-disable-next-line import/prefer-default-export
-export const isValidateImg = async (file, ...rest) => {
+
+export const isValidateImg = async (file: File, ...rest) => {
   let pass = true;
   let fileInfo = {};
   try {
@@ -30,12 +30,3 @@ export const isValidateImg = async (file, ...rest) => {
   }
   return pass;
 };
-
-// export const isValidateFile = async (file, ...rest) => {
-//   let pass = true;
-//   let fileInfo = {};
-//   try {
-//     fileInfo = await getFileInfo(file);
-//   } catch (e) { console.error(e); } // eslint-disable-line
-//   return pass;
-// };
