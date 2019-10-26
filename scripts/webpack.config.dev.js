@@ -5,7 +5,7 @@ const { resolve } = require('./util');
 
 module.exports = merge(base, {
   devServer: {
-    contentBase: resolve('../dist'),
+    contentBase: resolve('../build'),
     port: 8080,
     hot: true,
     compress: false,

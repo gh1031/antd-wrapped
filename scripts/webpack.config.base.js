@@ -15,7 +15,7 @@ const config = {
   // devtool: isProd ? 'source-map' : 'cheap-eval-source-map',
   devtool: 'source-map',
   entry: {
-    index: resolve('../src/index.js'),
+    index: resolve('../src/index'),
   },
   output: {
     path: resolve('../build'),

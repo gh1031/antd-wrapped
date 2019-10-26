@@ -18,7 +18,7 @@ const { Option } = Select;
 
 interface IProps {
   optionKey: string;
-  fetchApi: (params: { [key: string]: string}) => Promise<any>;
+  request: (params: { [key: string]: string}) => Promise<any>;
   onSelect: () => void;
   showArrow: boolean;
   delay: number;
@@ -26,7 +26,7 @@ interface IProps {
 }
 
 function WrappedSelect({
-  fetchApi,
+  request,
   optionKey,
   onSelect,
   showArrow,
@@ -36,9 +36,9 @@ function WrappedSelect({
   const [fetching, setFetch] = useState(true);
   const [options, setOptions] = useState([]);
 
-  async function handleSearch(value) {
+  async function handleSearch(value: string): Promise<any> {
     setFetch(true);
-    const { list } = await fetchApi({ [optionKey]: value });
+    const { list } = await request({ [optionKey]: value });
     setFetch(false);
     setOptions(list);
   }
@@ -60,7 +60,7 @@ function WrappedSelect({
 }
 
 WrappedSelect.propTypes = {
-  fetchApi: PropTypes.func.isRequired,
+  request: PropTypes.func.isRequired,
   optionKey: PropTypes.string.isRequired,
   onSelect: PropTypes.func,
   showArrow: PropTypes.bool,

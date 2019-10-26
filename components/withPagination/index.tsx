@@ -9,6 +9,8 @@ function getDisplayName(WrappedComponent) {
 function withPagination({ pagination, handlePageChange, handleShowSizeChange }) {
   return (WrappedComponent) => {
     class withPaginationComponent extends React.Component {
+      static displayName: string;
+
       static propTypes = {};
 
       handlePageChange = (pageNo) => {

@@ -2,14 +2,9 @@ import React, { FC } from 'react';
 import { WrappedFormUtils, GetFieldDecoratorOptions, ValidationRule } from 'antd/es/form/Form';
 import { FormItemProps } from 'antd/es/form/FormItem';
 import { ColProps } from 'antd/es/grid/col';
-import PropTypes from 'prop-types';
-import {
-  Form,
-  Col,
-  Row,
-  Select,
-} from 'antd';
+import { Form, Col, Row } from 'antd';
 import { pickProps } from '../utils/lang';
+import { renderOptions } from './renderChildren';
 
 type Layout = {
   labelCol?: ColProps;
@@ -50,7 +45,6 @@ interface IProps {
   form: WrappedFormUtils;
 }
 
-const { Option } = Select;
 const { Item: FormItem } = Form;
 const defaultFormItemLayout: Layout = {
   labelCol: {
@@ -61,7 +55,10 @@ const defaultFormItemLayout: Layout = {
   },
 };
 
-const WrappedForm: FC<IProps> = (props) => {
+interface WithStaticMethodsFC extends FC<IProps> {
+  renderOptions(array: [], options: {}): React.ReactNode;
+}
+const WrappedForm: WithStaticMethodsFC = (props) => {
   const { form, meta } = props;
   const renderFormItem = (formItemMeta: IElement): React.ReactElement => {
     const {
@@ -186,35 +183,7 @@ const WrappedForm: FC<IProps> = (props) => {
   return render;
 };
 
-WrappedForm.propTypes = {
-  meta: PropTypes.object.isRequired,
-  form: PropTypes.object.isRequired,
-};
 
-export const renderOptions = (
-  array,
-  options,
-) => {
-  if (!Array.isArray(array)) {
-    throw Error('The first argument must be an array!');
-  }
-  const {
-    titleKey = 'title',
-    key = 'key',
-  } = (options || {});
-  const childern = [];
-  if (!array.length) return null;
-  for (let i = 0; i < array.length; i++) {
-    childern.push(
-      <Option
-        key={array[i][key]}
-        value={array[i][key]}
-      >
-        {array[i][titleKey]}
-      </Option>,
-    );
-  }
-  return childern;
-};
+WrappedForm.renderOptions = renderOptions;
 
 export default WrappedForm;

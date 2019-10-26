@@ -5,11 +5,11 @@ import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { noop } from '../utils/lang';
 
-interface IMenuItem {
+export interface IMenuItem {
   path: string;
   children: IMenuItem[]
 }
-interface IProps extends MenuProps, RouteComponentProps {
+export interface IProps extends MenuProps, RouteComponentProps {
   menus: IMenuItem[];
   renderTitle(menu: IMenuItem): React.ReactElement;
   onClick(): void;

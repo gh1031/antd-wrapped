@@ -3,9 +3,10 @@ import { Popconfirm } from 'antd';
 import { PopconfirmProps } from 'antd/es/popconfirm';
 import PropTypes from 'prop-types';
 
-interface IProps extends PopconfirmProps{
+export interface IProps extends PopconfirmProps{
   btnText: string;
 }
+
 const WrappedConfirm: FC = ({
   title,
   okText,

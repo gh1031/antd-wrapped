@@ -11,12 +11,16 @@ import { noop } from '../utils/lang';
 import { isValidateImg } from './valideFile';
 import './index.less';
 
+interface Preview {
+  previewVisible?: boolean;
+  previewSrc?: string;
+}
 const { Dragger } = Upload;
 
 function WrappedUpload(props) {
-  let widgetProps = {};
+  let componentProps = {};
   const [loading, setLoading] = useState(false);
-  const [preview, setPreview] = useState({
+  const [preview, setPreview] = useState<Preview>({
     previewVisible: false,
     previewSrc: '',
   });
@@ -71,7 +75,7 @@ function WrappedUpload(props) {
   /**
    * list type method start scope
    */
-  const handleRemove = () => new Promise((resolve) => {
+  const handleRemove = (): Promise<any> => new Promise((resolve) => {
     setFileList(fileList => ([...fileList.filter(exectFile => exectFile.status !== 'removed')]));
     resolve();
   });
@@ -91,7 +95,7 @@ function WrappedUpload(props) {
   }
   const renderList = () => (
     <Fragment>
-      <Upload {...widgetProps}>
+      <Upload {...componentProps}>
         { fileList.length >= pictureCount ? null : (
           <Fragment>
             <Icon type={iconType} />
@@ -117,7 +121,7 @@ function WrappedUpload(props) {
    * button type method start scope
    */
   const renderButton = () => (
-    <Upload {...widgetProps}>
+    <Upload {...componentProps}>
       <Button type={buttonType} disabled={loading}>
         <Icon type={iconType} />
         <span>{buttonText}</span>
@@ -129,7 +133,7 @@ function WrappedUpload(props) {
    */
 
   const renderDrag = () => (
-    <Dragger {...widgetProps}>
+    <Dragger {...componentProps}>
       {children
         || (
           <div className="wrapped-drag">
@@ -151,7 +155,7 @@ function WrappedUpload(props) {
     }
   };
 
-  widgetProps = {
+  componentProps = {
     ...uploadProps,
     onChange: handleChange,
     beforeUpload,

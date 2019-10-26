@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
+    "target": "esnext",
     "jsx": "react",
     "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "module": "esnext",
-    "lib": ["es5", "dom", "es6", "es7", "esnext"],
+    "outDir": "../types/",
+    "lib": ["dom", "esnext"],
   },
   "include": ["./*"]
 }
