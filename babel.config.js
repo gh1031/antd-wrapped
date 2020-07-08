@@ -1,4 +1,4 @@
-console.log('babel running>>>>>>>>>>>>>>');
+console.log('babel is running>>>>>>>>>>>>>>');
 
 const { MODULE_ENV, NODE_ENV } = process.env;
 
@@ -8,14 +8,13 @@ const isDev = NODE_ENV === 'development';
 module.exports = {
   plugins: [
     // antd 打入dll
-    // [
-    //   "import",
-    //   {
-    //     "libraryName": "antd",
-    //     "libraryDirectory": "es",
-    //     "style": "css"
-    //   }
-    // ],
+    [
+      'import',
+      {
+        libraryName: 'antd',
+        style: 'css',
+      },
+    ],
     ['@babel/plugin-transform-react-jsx'],
     ['@babel/plugin-proposal-decorators', { legacy: true, loose: true }],
     ['@babel/plugin-proposal-class-properties', { loose: true }],

@@ -71,7 +71,7 @@ WrappedSelect.propTypes = {
 WrappedSelect.defaultProps = {
   onSelect: noop,
   showArrow: false,
-  delay: 300,
+  delay: 500,
   style: { width: 200 },
 };
 

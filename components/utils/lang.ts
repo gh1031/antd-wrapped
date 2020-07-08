@@ -9,7 +9,7 @@ export const isObject = obj => toString.call(obj) === '[object Object]';
 export const isArray = arr => toString.call(arr) === '[object Array]';
 export const isString = str => toString.call(str) === '[object String]';
 
-export const recursionRewriteFields = (arr = [], key) => (
+export const recursionRewriteFields = (arr: any[] = [], key?: string) => (
   arr.map((item, index) => {
     item.key = !key ? `${index}` : `${key}-${index}`; // eslint-disable-line
     if (item.children) {

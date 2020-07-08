@@ -3,9 +3,9 @@ import getFileInfo from '../utils/file';
 
 const duration = 3;
 
-export const isValidateImg = async (file: File, ...rest) => {
+export const isValidateImg = async (file: File, ...rest: any) => {
   let pass = true;
-  let fileInfo = {};
+  let fileInfo: { width?: string; height?: string} = {};
   try {
     fileInfo = await getFileInfo(file);
   } catch (e) { console.error(e); } // eslint-disable-line

@@ -5,35 +5,23 @@ const isGit = (process.env.ESLIT_ENV === 'GIT');
 const path = require('path');
 
 const config = {
-  parser: 'babel-eslint',
+  extends: [
+    'airbnb',
+    'plugin:react/recommended',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:import/typescript'
+  ],
+  plugins: [
+    '@typescript-eslint',
+    'react-hooks'
+  ],
+  parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     node: true,
     jest: true,
   },
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: {
-          resolve: {
-            alias: {
-              '@': path.resolve(__dirname),
-              src: path.resolve(__dirname, './src'),
-            },
-          },
-        },
-      },
-    },
-  },
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  plugins: ['react-hooks'],
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'airbnb'],
   rules: {
     'no-console': isGit ? ERROR : WARN,
     'no-unused-vars': WARN,
@@ -54,6 +42,8 @@ const config = {
     'react/jsx-one-expression-per-line': OFF,
     'react/require-default-props': OFF,
     'consistent-return': OFF,
+
+    '@typescript-eslint/explicit-module-boundary-types': OFF,
   },
 };
 

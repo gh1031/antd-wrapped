@@ -1,15 +1,7 @@
-import WrappedConfirm from './wrappedConfirm';
-import WrappedSelect from './wrappedSelect';
-import WrappedMenu from './wrappedMenu';
-import WrappedUpload from './wrappedUpload';
-import WrappedForm from './wrappedForm';
-import WrappedCard from './wrappedCard';
+export { default as WrappedConfirm } from './wrappedConfirm';
+export { default as WrappedSelect } from './wrappedSelect';
+export { default as WrappedMenu } from './wrappedMenu';
+export { default as WrappedUpload } from './wrappedUpload';
+export { default as WrappedForm } from './wrappedForm';
+export { default as WrappedCard } from './wrappedCard';
 
-export {
-  WrappedConfirm,
-  WrappedSelect,
-  WrappedMenu,
-  WrappedUpload,
-  WrappedForm,
-  WrappedCard,
-};

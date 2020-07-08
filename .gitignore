@@ -4,3 +4,4 @@ yarn-error.log
 dist/
 webpack.config.js
 commit.*
+yarn.lock

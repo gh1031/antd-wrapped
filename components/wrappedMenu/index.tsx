@@ -1,30 +1,33 @@
-import React, { Fragment } from 'react';
-import { Menu, Icon } from 'antd';
+import React, { Fragment, FC } from 'react';
+import { Menu } from 'antd';
 import { MenuProps } from 'antd/es/menu';
-import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
+import { Link, useHistory, RouteComponentProps } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { noop } from '../utils/lang';
 
 export interface IMenuItem {
+  icon: string;
+  title: string;
   path: string;
   children: IMenuItem[]
 }
-export interface IProps extends MenuProps, RouteComponentProps {
+
+export interface IProps extends MenuProps {
   menus: IMenuItem[];
-  renderTitle(menu: IMenuItem): React.ReactElement;
-  onClick(): void;
+  renderTitle?: (menu: IMenuItem) => React.ReactNode;
+  onClick?: () => void;
 }
 
 const { SubMenu, Item } = Menu;
-function WrappedMenu(props: IProps) {
+const defaultRenderTitle =  menu => <span>{menu.title}</span>;
+const WrappedMenu: FC<IProps> = (props: IProps) => {
   const {
     menus = [],
-    renderTitle,
-    mode,
-    theme,
-    location,
-    onClick,
+    renderTitle = defaultRenderTitle,
+    onClick = noop,
+    ...restProps
   } = props;
+  const { location } = useHistory();
   /**
    *
    * @param {Array} menus
@@ -64,35 +67,14 @@ function WrappedMenu(props: IProps) {
 
   return (
     <Menu
-      mode={mode}
-      theme={theme}
       onClick={onClick}
       defaultOpenKeys={getOpenKeys()}
       selectedKeys={[location.pathname]}
+      {...restProps}
     >
       {renderMenu(menus)}
     </Menu>
   );
-}
-
-WrappedMenu.propTypes = {
-  mode: PropTypes.string,
-  theme: PropTypes.string,
-  renderTitle: PropTypes.func,
-  onClick: PropTypes.func,
-  menus: PropTypes.array.isRequired,
 };
 
-WrappedMenu.defaultProps = {
-  mode: 'inline',
-  theme: 'light',
-  renderTitle: menu => (
-    <Fragment>
-      {menu.icon && <Icon type={menu.icon} style={{ marginRight: 4 }} />}
-      <span>{menu.title}</span>
-    </Fragment>
-  ),
-  onClick: noop,
-};
-
-export default withRouter(WrappedMenu);
+export default WrappedMenu;

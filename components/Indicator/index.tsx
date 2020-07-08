@@ -3,7 +3,11 @@ import ReactDom from 'react-dom';
 import { Spin } from 'antd';
 import styles from './index.less';
 
-const GlobalLoading = ({ visible }) => {
+interface Props {
+  visible: boolean;
+}
+
+const GlobalLoading = ({ visible }: Props) => {
   if (!visible) return null;
   return ReactDom.createPortal(
     <section className={styles.layout}>

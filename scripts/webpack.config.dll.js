@@ -11,7 +11,6 @@ module.exports = {
   },
   entry: [
     'axios',
-    'antd',
     'lodash',
     'react',
     'classnames',

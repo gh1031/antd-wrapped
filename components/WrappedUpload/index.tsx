@@ -2,7 +2,6 @@ import React, { useState, Fragment } from 'react';
 import {
   Upload,
   Button,
-  Icon,
   message,
   Modal,
 } from 'antd';
@@ -98,7 +97,7 @@ function WrappedUpload(props) {
       <Upload {...componentProps}>
         { fileList.length >= pictureCount ? null : (
           <Fragment>
-            <Icon type={iconType} />
+            {/* <Icon type={iconType} /> */}
             <div className="ant-upload-text">{buttonText}</div>
           </Fragment>
         )}
@@ -123,7 +122,7 @@ function WrappedUpload(props) {
   const renderButton = () => (
     <Upload {...componentProps}>
       <Button type={buttonType} disabled={loading}>
-        <Icon type={iconType} />
+        {/* <Icon type={iconType} /> */}
         <span>{buttonText}</span>
       </Button>
     </Upload>
@@ -138,7 +137,7 @@ function WrappedUpload(props) {
         || (
           <div className="wrapped-drag">
             <p className="ant-upload-drag-icon">
-              <Icon type="inbox" />
+              {/* <Icon type="inbox" /> */}
             </p>
             <p className="ant-upload-text">点击此区域或拖到文件至此区域</p>
           </div>

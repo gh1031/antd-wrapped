@@ -4,7 +4,7 @@ export default function getFileInfo(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = (evt) => {
+    reader.onload = (evt: any) => {
       const { result } = evt.currentTarget;
       if (image.includes(file.type)) {
         const img = new Image();

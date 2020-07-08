@@ -8,17 +8,41 @@ const isProd = process.env.NODE_ENV === 'production';
 const { resolve } = require('./util');
 const DIR_MAP = require('./constant');
 const manifest = require('../build/dll__mainfest.json');
-require('./env');
+// require('./env');
 
 const config = {
+  context: resolve('..'),
   mode: process.env.NODE_ENV,
   // devtool: isProd ? 'source-map' : 'cheap-eval-source-map',
   devtool: 'source-map',
+  
   entry: {
-    index: resolve('../src/index'),
+    index: './src/index',
+    // home: './src/index' 
   },
+  // entry: './src/index',
+  // entry: ['./src/index'],
+  // v5.x
+  // entry: {
+  //   shared: ['react', 'react-dom'],
+  //   index: {
+  //     import: resolve('../src/index'),
+  //     filename: 'pages/index.js',
+  //     dependOn: 'shared',
+  //   },
+  //   home: {
+  //     import: resolve('../src/index'),
+  //     filename: '[name].js',
+  //   },
+  //   main: {
+  //     import: resolve('../src/index'),
+  //     filename: 'pages/[name].js',
+  //     dependOn: 'shared',
+  //   },
+  // },
+
   output: {
-    path: resolve('../build'),
+    path: resolve('../dist'),
     publicPath: '/',
     filename: isProd ? '[name].[contenthash].js' : '[name].js',
   },
@@ -28,6 +52,7 @@ const config = {
       '@': resolve('..'),
     },
   },
+  
   module: {
     rules: [
       {
@@ -71,7 +96,6 @@ const config = {
   },
   plugins: [
     new webpack.DllReferencePlugin({
-      // context: manifest,
       manifest,
     }),
     new HtmlWebpackPlugin({
